@@ -1,0 +1,25 @@
+ion-content {
+	--background: #222;
+
+	img {
+		position: absolute;
+		margin: auto;
+		width: 30%;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		max-width: 400px;
+	}
+}
+
+img {
+	color: #e00;
+	opacity: .4;
+	animation: beat .4s infinite alternate;
+	transform-origin: center;
+}
+
+@keyframes beat{
+	to { transform: scale(.5); opacity: 1 }
+}

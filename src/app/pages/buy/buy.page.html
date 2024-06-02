@@ -1,0 +1,123 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>information</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div id="modal-header">
+    Adquirir la Versión PRO
+  </div>
+  <div id="outer-modal">
+    <div id="inner-modal">
+
+      <div id="inner-information" style="text-align: center;" *ngIf="!paymentForm">
+
+        <h3>Alternativas de suscripción para ES Basic</h3>
+
+        <br>
+
+        <i style="font-size: 14px; line-height: 20px;">
+          El usuario logeado no tiene permisos para acceder <br> a todas las características de la App
+        </i>
+
+        <br>
+        <br>
+
+        <h3>
+          Hay dos diferentes tipos de suscripción para la aplicación:
+        </h3>
+
+        <br>
+
+        <ul style="line-height: 20px; padding: 0;">
+          <h6>1. Suscripción mensual: El usuario paga un monto fijo de 7 euros cada mes para mantener la suscripción activa.</h6>
+          <h6>2. Suscripción anual: El usuario paga un monto fijo al año de <b>70 euros</b> para mantener la suscripción activa.</h6>
+
+          <br>
+
+          <h6>La aplicación tiene versión para PC o MAC por favor, compra la licencia del software en <a target="_blank" href="http://app.es-basic.com/">http://app.es-basic.com</a></h6>
+
+          <br>
+
+          <h6>
+            La versión para Tablet y Celulares busca la aplicación por Google Play o App Store.
+          </h6>
+        </ul>
+
+        <br>
+        <br>
+
+        <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="3">
+            <button style="text-decoration: none; display: block; line-height: 20px;" class="modal-button" (click)="comprar('month')">SUSCRIPCIÓN MENSUAL</button>
+          </ion-col>
+          <ion-col size="3">
+            <button style="text-decoration: none; display: block; line-height: 20px;" class="modal-button" (click)="comprar('year')">SUSCRIPCIÓN ANUAL</button>
+            <!-- <a class="modal-button" href="https://www.afecfa.es/pagar/?add-to-cart=15745" target="_blank">COMPRAR</a> -->
+          </ion-col>
+        </ion-row>
+
+
+        <!-- <br>
+
+        <h3>Restaurar tu suscripción</h3>
+
+        <p>
+          Si ya has comprado la versión PRO puedes restaurarla pulsando aquí
+        </p>
+
+        <ion-row>
+          <ion-col size="3"></ion-col>
+          <ion-col size="6">
+            <button class="modal-button" (click)="restaurar()">
+              RESTAURAR
+            </button>
+          </ion-col>
+        </ion-row> -->
+      </div>
+
+      <div style="text-align: center; margin: auto;" id="payment-form" *ngIf="paymentForm">
+
+        <h4 *ngIf="type == 'month'" style="position: relative;">Adqurir versión PRO durante 1 mes</h4>
+        <h4 *ngIf="type == 'year'" style="position: relative;">Adqurir versión PRO durante 1 año</h4>
+
+        <br>
+        
+        <div class="formulario-pago" style="position: relative;">
+          <label for="card-number">Número de tarjeta</label>
+          <div id="card-number-element" class="form-control">
+          </div>
+
+          <ion-row class="ion-no-padding ion-no-padding">
+            <ion-col class="ion-no-padding ion-padding-end">
+              <label>Fecha de vencimiento</label>
+
+              <div id="card-expiry-element" class="form-control">
+              </div>
+            </ion-col>
+            <ion-col class="ion-no-padding ion-padding-start">
+              <label for="card-cvc">CVC</label>
+              <div id="card-cvc-element" class="form-control">
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <ion-button (click)="pagar()" class="ion-no-padding" size="large" shape="round" color="tertiary" style="width: 400px; color: #fff">Pagar {{amount}}€</ion-button>
+        <br>
+        <br>
+        <span style="cursor: pointer; font-size: 18px; position: relative; text-decoration: underline;" (click)="paymentForm = false">Volver</span>
+
+        <img src="https://panel.warriorsbarcelona.com/stripe.png" alt="" class="img-responsive" style="width: 100%; position: relative; margin-top: 18px;">
+
+        <!-- <button class="btn btn-xl" style="color: #fff !important; background-color: #665bff; width: 400px; margin-top: 8px;">Pagar <span class="total-payment"></span>€</button> -->
+
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
