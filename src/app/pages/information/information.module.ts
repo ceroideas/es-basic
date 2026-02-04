@@ -8,11 +8,14 @@ import { InformationPageRoutingModule } from './information-routing.module';
 
 import { InformationPage } from './information.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     InformationPageRoutingModule
   ],
   declarations: [InformationPage]

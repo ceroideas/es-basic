@@ -18,13 +18,13 @@
         </div>
 
         <div class="input">
-          <input type="email" [(ngModel)]="email" placeholder="E-mail">
+          <input type="email" [(ngModel)]="email" placeholder="{{'recovery.email' | translate}}">
         </div>
         <div style="clear: both;"></div>
       </div>
 
       <button class="button-login" (click)="enviar()" routerDirection="root">
-        ENVIAR CÓDIGO
+        {{'recovery.send' | translate}}
       </button>
 
     </div>
@@ -37,13 +37,13 @@
         </div>
 
         <div class="input">
-          <input type="text" [(ngModel)]="reenterCode" placeholder="Código">
+          <input type="text" [(ngModel)]="reenterCode" placeholder="{{'recovery.code' | translate}}">
         </div>
         <div style="clear: both;"></div>
       </div>
 
       <button class="button-login" (click)="comprobar()" routerDirection="root">
-        COMPROBAR CÓDIGO
+        {{'recovery.check' | translate}}
       </button>
     
     </div>
@@ -56,7 +56,7 @@
         </div>
 
         <div class="input">
-          <input type="password" [(ngModel)]="password" placeholder="Password">
+          <input type="password" [(ngModel)]="password" placeholder="{{'recovery.password' | translate}}">
         </div>
         <div style="clear: both;"></div>
       </div>
@@ -67,19 +67,19 @@
         </div>
 
         <div class="input">
-          <input type="password" [(ngModel)]="password_confirmation" placeholder="Repite la Password">
+          <input type="password" [(ngModel)]="password_confirmation" placeholder="{{'recovery.repeat_password' | translate}}">
         </div>
         <div style="clear: both;"></div>
       </div>
 
       <button class="button-login" (click)="change()" routerDirection="root">
-        CAMBIAR CONTRASEÑA
+        {{'recovery.change' | translate}}
       </button>
     
     </div>
 
-    <span class="other-text">¿Ya tienes cuenta? <span  [routerLink]="['/login']" routerDirection="root">Inicia sesión</span></span>
-    <span class="other-text">¿No tienes cuenta? <span  [routerLink]="['/register']" routerDirection="root">Regístrate</span></span>
+    <span class="other-text">{{'recovery.already_account' | translate}} <span  [routerLink]="['/login']" routerDirection="root">{{'recovery.login' | translate}}</span></span>
+    <span class="other-text">{{'recovery.not_account' | translate}} <span  [routerLink]="['/register']" routerDirection="root">{{'recovery.register' | translate}}</span></span>
 
   </div>
 

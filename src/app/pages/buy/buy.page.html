@@ -14,12 +14,12 @@
 
       <div id="inner-information" style="text-align: center;" *ngIf="!paymentForm">
 
-        <h3>Alternativas de suscripción para ES Basic</h3>
+        <h3>{{'buy.buy_1' | translate}}</h3>
 
         <br>
 
         <i style="font-size: 14px; line-height: 20px;">
-          El usuario logeado no tiene permisos para acceder <br> a todas las características de la App
+          {{'buy.buy_2' | translate}}
         </i>
 
         <br>
@@ -32,17 +32,17 @@
         <br>
 
         <ul style="line-height: 20px; padding: 0;">
-          <h6>1. Suscripción mensual: El usuario paga un monto fijo de 7 euros cada mes para mantener la suscripción activa.</h6>
-          <h6>2. Suscripción anual: El usuario paga un monto fijo al año de <b>70 euros</b> para mantener la suscripción activa.</h6>
+          <h6>{{'buy.buy_3' | translate}}</h6>
+          <h6>{{'buy.buy_4' | translate}}</h6>
 
           <br>
 
-          <h6>La aplicación tiene versión para PC o MAC por favor, compra la licencia del software en <a target="_blank" href="http://app.es-basic.com/">http://app.es-basic.com</a></h6>
+          <h6>{{'buy.buy_5' | translate}} <a target="_blank" href="http://app.es-basic.com/">http://app.es-basic.com</a></h6>
 
           <br>
 
           <h6>
-            La versión para Tablet y Celulares busca la aplicación por Google Play o App Store.
+            {{'buy.buy_6' | translate}}
           </h6>
         </ul>
 
@@ -52,10 +52,10 @@
         <ion-row>
           <ion-col size="3"></ion-col>
           <ion-col size="3">
-            <button style="text-decoration: none; display: block; line-height: 20px;" class="modal-button" (click)="comprar('month')">SUSCRIPCIÓN MENSUAL</button>
+            <button style="text-decoration: none; display: block; line-height: 20px;" class="modal-button" (click)="comprar('month')">{{'buy.buy_7' | translate}}</button>
           </ion-col>
           <ion-col size="3">
-            <button style="text-decoration: none; display: block; line-height: 20px;" class="modal-button" (click)="comprar('year')">SUSCRIPCIÓN ANUAL</button>
+            <button style="text-decoration: none; display: block; line-height: 20px;" class="modal-button" (click)="comprar('year')">{{'buy.buy_8' | translate}}</button>
             <!-- <a class="modal-button" href="https://www.afecfa.es/pagar/?add-to-cart=15745" target="_blank">COMPRAR</a> -->
           </ion-col>
         </ion-row>
@@ -81,35 +81,35 @@
 
       <div style="text-align: center; margin: auto;" id="payment-form" *ngIf="paymentForm">
 
-        <h4 *ngIf="type == 'month'" style="position: relative;">Adqurir versión PRO durante 1 mes</h4>
-        <h4 *ngIf="type == 'year'" style="position: relative;">Adqurir versión PRO durante 1 año</h4>
+        <h4 *ngIf="type == 'month'" style="position: relative;">{{'buy.buy_9' | translate}}</h4>
+        <h4 *ngIf="type == 'year'" style="position: relative;">{{'buy.buy_10' | translate}}</h4>
 
         <br>
         
         <div class="formulario-pago" style="position: relative;">
-          <label for="card-number">Número de tarjeta</label>
+          <label for="card-number">{{'buy.buy_11' | translate}}</label>
           <div id="card-number-element" class="form-control">
           </div>
 
           <ion-row class="ion-no-padding ion-no-padding">
             <ion-col class="ion-no-padding ion-padding-end">
-              <label>Fecha de vencimiento</label>
+              <label>{{'buy.buy_12' | translate}}</label>
 
               <div id="card-expiry-element" class="form-control">
               </div>
             </ion-col>
             <ion-col class="ion-no-padding ion-padding-start">
-              <label for="card-cvc">CVC</label>
+              <label for="card-cvc">{{'buy.buy_13' | translate}}</label>
               <div id="card-cvc-element" class="form-control">
               </div>
             </ion-col>
           </ion-row>
         </div>
 
-        <ion-button (click)="pagar()" class="ion-no-padding" size="large" shape="round" color="tertiary" style="width: 400px; color: #fff">Pagar {{amount}}€</ion-button>
+        <ion-button (click)="pagar()" class="ion-no-padding" size="large" shape="round" color="tertiary" style="width: 400px; color: #fff">{{'buy.buy_14' | translate}} {{amount}}€</ion-button>
         <br>
         <br>
-        <span style="cursor: pointer; font-size: 18px; position: relative; text-decoration: underline;" (click)="paymentForm = false">Volver</span>
+        <span style="cursor: pointer; font-size: 18px; position: relative; text-decoration: underline;" (click)="paymentForm = false">{{'buy.buy_15' | translate}}</span>
 
         <img src="https://panel.warriorsbarcelona.com/stripe.png" alt="" class="img-responsive" style="width: 100%; position: relative; margin-top: 18px;">
 

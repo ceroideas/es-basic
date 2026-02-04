@@ -8,6 +8,8 @@ import { CalendarPageRoutingModule } from './calendar-routing.module';
 
 import { CalendarPage } from './calendar.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
@@ -23,6 +25,7 @@ import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
     FormsModule,
     IonicModule,
     FullCalendarModule,
+    TranslateModule.forChild(),
     CalendarPageRoutingModule
   ],
   declarations: [CalendarPage]

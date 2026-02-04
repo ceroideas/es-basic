@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { register } from 'swiper/element/bundle';
 
+import {TranslateService} from '@ngx-translate/core';
+
 register();
 
 @Component({
@@ -10,5 +12,15 @@ register();
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(translate: TranslateService,) {
+
+    let lang = localStorage.getItem('language');
+
+    if (!lang) {
+        lang = "es";
+    }
+
+    translate.setDefaultLang(lang);
+    translate.use(lang);
+  }
 }

@@ -8,11 +8,14 @@ import { RecoveryPageRoutingModule } from './recovery-routing.module';
 
 import { RecoveryPage } from './recovery.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     RecoveryPageRoutingModule
   ],
   declarations: [RecoveryPage]

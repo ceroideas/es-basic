@@ -3,6 +3,8 @@ import { NavController, LoadingController, AlertController, ToastController } fr
 
 import { ApiService } from '../services/api.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-recovery',
   templateUrl: './recovery.page.html',
@@ -21,6 +23,7 @@ export class RecoveryPage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
+    private translate: TranslateService,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toast: ToastController, public api: ApiService) { }
 
   ngOnInit() {
@@ -32,8 +35,8 @@ export class RecoveryPage implements OnInit {
   enviar() {
 
     if (!this.email) {
-      this.alertCtrl.create({message:"Ingrese el email para recuperar la contraseña", buttons: [{
-        text: "Aceptar"
+      this.alertCtrl.create({message:this.translate.instant('recovery.insert_email'), buttons: [{
+        text: this.translate.instant('recovery.accept')
       }]}).then(a=>{
         a.present();
       })
@@ -44,8 +47,8 @@ export class RecoveryPage implements OnInit {
         .subscribe((data:any)=>{
         a.dismiss();
         this.step = 2;
-        this.alertCtrl.create({message:"Ingrese el código enviado a su correo electrónico", buttons: [{
-          text: "Aceptar"
+        this.alertCtrl.create({message:this.translate.instant('recovery.code_sent'), buttons: [{
+          text: this.translate.instant('recovery.accept')
         }]}).then(a=>{
           a.present();
         })
@@ -64,8 +67,8 @@ export class RecoveryPage implements OnInit {
   {
 
     if (this.code != this.reenterCode) {
-      this.alertCtrl.create({message:"El código ingresado no coincide con el enviado al correo", buttons: [{
-        text: "Aceptar"
+      this.alertCtrl.create({message:this.translate.instant('recovery.code_invalid'), buttons: [{
+        text: this.translate.instant('recovery.accept')
       }]}).then(a=>{
         a.present();
       })
@@ -73,8 +76,8 @@ export class RecoveryPage implements OnInit {
       this.loadingCtrl.create().then(l=>{
         l.present();
 
-        this.alertCtrl.create({message:"Ingrese la nueva contraseña", buttons: [{
-          text: "Aceptar"
+        this.alertCtrl.create({message:this.translate.instant('recovery.insert_new_password'), buttons: [{
+          text: this.translate.instant('recovery.accept')
         }]}).then(a=>{
           a.present();
         })
@@ -98,8 +101,8 @@ export class RecoveryPage implements OnInit {
         a.dismiss();
 
         this.navCtrl.navigateRoot('login');
-        this.alertCtrl.create({message:"¡Contraseña cambiada con éxito! Puede iniciar sesión ahora",buttons: [{
-          text: "Aceptar"
+        this.alertCtrl.create({message:this.translate.instant('recovery.password_changed'),buttons: [{
+          text: this.translate.instant('recovery.accept')
         }]}).then(a=>{
           a.present();
         })

@@ -3,6 +3,8 @@ import { ModalController,LoadingController, AlertController } from '@ionic/angul
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 declare var moment:any;
 
 @Component({
@@ -61,7 +63,7 @@ export class PlayersPage implements OnInit {
 
   teams:any = [];
 
-  constructor(public modal: ModalController, public api: ApiService, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public modal: ModalController, public api: ApiService, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public events: EventsService) { }
 
   ngOnInit() {
     this.getAllPlayers();
@@ -237,16 +239,16 @@ export class PlayersPage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("players.delete"), buttons: [
     {
-      text:"Si",
+      text:this.translate.instant("players.yes"),
       handler:()=>{
         this.api.deletePlayer(id).subscribe(data=>{
           this.getAllPlayers();
         });
       }
     },{
-      text:"No"
+      text:this.translate.instant("players.no")
     }
     ]}).then(a=>a.present());
   }
@@ -260,9 +262,9 @@ export class PlayersPage implements OnInit {
 
   delete1(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("players.delete"), buttons: [
     {
-      text:"Si",
+      text:this.translate.instant("players.yes"),
       handler:()=>{
         this.api.deleteReport(id).subscribe(data=>{
           this.api.getReports(this.player.id).subscribe(data=>{
@@ -271,7 +273,7 @@ export class PlayersPage implements OnInit {
         });
       }
     },{
-      text:"No"
+      text:this.translate.instant("players.no")
     }
     ]}).then(a=>a.present());
   }

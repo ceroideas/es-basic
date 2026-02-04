@@ -8,11 +8,14 @@ import { TerrainPageRoutingModule } from './terrain-routing.module';
 
 import { TerrainPage } from './terrain.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     TerrainPageRoutingModule
   ],
   declarations: [TerrainPage]

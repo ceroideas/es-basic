@@ -7,31 +7,31 @@
 <ion-content>
 
   <div id="modal-header" *ngIf="step == 1">
-    Terreno de juego
+    {{'new-project.newProject_1' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 2">
-    Configuración de los equipos
+    {{'new-project.newProject_2' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 3">
-    Cargar Equipos
+    {{'new-project.newProject_3' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 4">
-    Nuevo Equipo
+    {{'new-project.newProject_4' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 5">
-    Plantilla
+    {{'new-project.newProject_5' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 6">
-    Datos del Jugador
+    {{'new-project.newProject_6' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 7">
-    Datos del Partido
+    {{'new-project.newProject_7' | translate}}
   </div>
   <div id="outer-modal">
     <div id="inner-modal">
@@ -48,7 +48,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terreno = 1">
-                <span style="position: relative; top: 8px; display: block;">Opción 1</span>
+                <span style="position: relative; top: 8px; display: block;">{{'new-project.newProject_8' | translate}}</span>
               </label>
             </ion-col>
 
@@ -59,7 +59,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terreno = 2">
-                <span style="position: relative; top: 8px; display: block;">Opción 2</span>
+                <span style="position: relative; top: 8px; display: block;">{{'new-project.newProject_9' | translate}}</span>
               </label>
             </ion-col>
 
@@ -70,7 +70,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terreno = 3">
-                <span style="position: relative; top: 8px; display: block;">Opción 3</span>
+                <span style="position: relative; top: 8px; display: block;">{{'new-project.newProject_10' | translate}}</span>
               </label>
             </ion-col>
           </ion-row>
@@ -80,7 +80,7 @@
           <ion-row class="row-bottom">
             <ion-col offset="4" size="4">
               <button class="button-login" [disabled]="!terreno" (click)="step = 2">
-                SIGUIENTE
+                {{'new-project.newProject_11' | translate}}
               </button>
             </ion-col>
           </ion-row>
@@ -109,7 +109,7 @@
                   <br>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Colores</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-project.newProject_12' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -122,7 +122,7 @@
 
                         </div>
 
-                        Color número
+                        {{'new-project.newProject_13' | translate}}
                       </div>
 
                       <div class="colors">
@@ -135,7 +135,7 @@
 
                         </div>
 
-                        Color principal
+                        {{'new-project.newProject_14' | translate}}
                       </div>
 
                       <div class="colors">
@@ -148,13 +148,13 @@
 
                         </div>
 
-                        Color fondo
+                        {{'new-project.newProject_15' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Estilos</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-project.newProject_16' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -164,7 +164,7 @@
                           10
                         </div>
 
-                        Estilo 1
+                        {{'new-project.newProject_17' | translate}}
                       </div>
 
                       <div class="colors">
@@ -174,7 +174,7 @@
                           10
                         </div>
 
-                        Estilo 2
+                        {{'new-project.newProject_18' | translate}}
                       </div>
 
                       <div class="colors">
@@ -184,13 +184,13 @@
                           10
                         </div>
 
-                        Estilo 3
+                        {{'new-project.newProject_19' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Solo color sólido</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-project.newProject_20' | translate}}</span></ion-col>
                     <ion-col size="8">
                       <div class="colors">
                         <div class="color number"
@@ -205,13 +205,13 @@
                 </ion-col>
                 <ion-col size="6">
                   <button class="modal-button" (click)="selectedTeam = 1; step = 3">
-                    Equipo Local
+                    {{'new-project.newProject_21' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button" *ngIf="team1" (click)="selectedTeam = 1; step = 5; preRosters(); prePlayers();">
-                    Plantilla
+                    {{'new-project.newProject_22' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -235,7 +235,7 @@
                   <br>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Colores</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-project.newProject_23' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -248,7 +248,7 @@
 
                         </div>
 
-                        Color número
+                        {{'new-project.newProject_24' | translate}}
                       </div>
 
                       <div class="colors">
@@ -261,7 +261,7 @@
 
                         </div>
 
-                        Color principal
+                        {{'new-project.newProject_25' | translate}}
                       </div>
 
                       <div class="colors">
@@ -274,13 +274,13 @@
 
                         </div>
 
-                        Color fondo
+                        {{'new-project.newProject_26' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Estilos</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-project.newProject_27' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -290,7 +290,7 @@
                           10
                         </div>
 
-                        Estilo 1
+                        {{'new-project.newProject_28' | translate}}
                       </div>
 
                       <div class="colors">
@@ -300,7 +300,7 @@
                           10
                         </div>
 
-                        Estilo 2
+                        {{'new-project.newProject_29' | translate}}
                       </div>
 
                       <div class="colors">
@@ -310,13 +310,13 @@
                           10
                         </div>
 
-                        Estilo 3
+                        {{'new-project.newProject_30' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Solo color sólido</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-project.newProject_31' | translate}}</span></ion-col>
                     <ion-col size="8">
                       <div class="colors">
                         <div class="color number"
@@ -332,13 +332,13 @@
 
                 <ion-col size="6">
                   <button class="modal-button" (click)="selectedTeam = 2; step = 3">
-                    Equipo Visitante
+                    {{'new-project.newProject_32' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button" *ngIf="team2" (click)="selectedTeam = 2; step = 5; preRosters(); prePlayers();">
-                    Plantilla
+                    {{'new-project.newProject_33' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -358,13 +358,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!team1 && !team2" (click)="step = 7">
-                    Siguiente
+                    {{'new-project.newProject_34' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="modal.dismiss()">
-                    Cancelar
+                    {{'new-project.newProject_35' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -388,9 +388,9 @@
           </ion-row>
           
           <ion-row style="border-bottom: 1px solid #ccc; text-align: center;">
-            <ion-col size="4">Logo</ion-col>
-            <ion-col size="4">Nombre</ion-col>
-            <ion-col size="3">Fecha de Creación</ion-col>
+            <ion-col size="4">{{'new-project.newProject_36' | translate}}</ion-col>
+            <ion-col size="4">{{'new-project.newProject_37' | translate}}</ion-col>
+            <ion-col size="3">{{'new-project.newProject_38' | translate}}</ion-col>
             <!-- <ion-col size="3">Favorito</ion-col> -->
             <ion-col size="1"></ion-col>
           </ion-row>
@@ -421,7 +421,7 @@
             </ion-row>
 
             <ion-row *ngIf="teams.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{'new-project.newProject_39' | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -431,7 +431,7 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 4">
-                    Nuevo Equipo
+                    {{'new-project.newProject_40' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -440,13 +440,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="selectTeam()">
-                    Cargar
+                    {{'new-project.newProject_41' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 2">
-                    Cancelar
+                    {{'new-project.newProject_42' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -471,7 +471,7 @@
             <ion-col size="9">
 
               <label class="modal-label">
-                Nombre del equipo
+                {{'new-project.newProject_43' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="team_name">
@@ -491,13 +491,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!team_name" (click)="saveTeam()">
-                    Agregar
+                    {{'new-project.newProject_44' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 2">
-                    Cancelar
+                    {{'new-project.newProject_45' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -523,23 +523,23 @@
           
           <ion-row style="border-bottom: 1px solid #ccc; text-align: left;">
             <ion-col size="1"></ion-col>
-            <ion-col size="2">Nombre</ion-col>
-            <ion-col size="2">Email</ion-col>
-            <ion-col size="1">Teléfono</ion-col>
-            <ion-col size="1">Número</ion-col>
+            <ion-col size="2">{{'new-project.newProject_46' | translate}}</ion-col>
+            <ion-col size="2">{{'new-project.newProject_47' | translate}}</ion-col>
+            <ion-col size="1">{{'new-project.newProject_48' | translate}}</ion-col>
+            <ion-col size="1">{{'new-project.newProject_49' | translate}}</ion-col>
             
             <ion-col size="3" class="ion-no-padding">
 
               <ion-row>
 
-                <ion-col size="6">Posición Principal</ion-col>
-                <ion-col size="6">Posición Secundaria</ion-col>
+                <ion-col size="6">{{'new-project.newProject_50' | translate}}</ion-col>
+                <ion-col size="6">{{'new-project.newProject_51' | translate}}</ion-col>
                 
               </ion-row>
               
             </ion-col>
             
-            <ion-col size="1">Dominancia</ion-col>
+            <ion-col size="1">{{'new-project.newProject_52' | translate}}</ion-col>
             <!-- <ion-col size="2">Peto</ion-col> -->
             <ion-col size="1"></ion-col>
             
@@ -584,18 +584,18 @@
                     <span class="reconfigure">
                       <select [attr.data-id]="r.id" class="positions form-control" (change)="updateRoster(r,$event,'position')">
                         <option selected></option>
-                        <option [selected]="r.position == 'Portero'">Portero</option>
-                        <option [selected]="r.position == 'Carrilero'">Carrilero</option>
-                        <option [selected]="r.position == 'Mediocampista'">Mediocampista</option>
-                        <option [selected]="r.position == 'Lateral izquierdo'">Lateral izquierdo</option>
-                        <option [selected]="r.position == 'Defensa central'">Defensa central</option>
-                        <option [selected]="r.position == 'Lateral derecho'">Lateral derecho</option>
-                        <option [selected]="r.position == 'Centrocampista Ofensivo'">Centrocampista Ofensivo</option>
-                        <option [selected]="r.position == 'Centrocampista Defensivo'">Centrocampista Defensivo</option>
-                        <option [selected]="r.position == 'Extremo Derecho'">Extremo Derecho</option>
-                        <option [selected]="r.position == 'Extremo Izquierdo'">Extremo Izquierdo</option>
-                        <option [selected]="r.position == 'Mediapunta'">Mediapunta</option>
-                        <option [selected]="r.position == 'Delantero'">Delantero</option>
+                        <option value='Portero' [selected]="r.position == 'Portero'">{{'new-project.newProject_53' | translate}}</option>
+                        <option value='Carrilero' [selected]="r.position == 'Carrilero'">{{'new-project.newProject_54' | translate}}</option>
+                        <option value='Mediocampista' [selected]="r.position == 'Mediocampista'">{{'new-project.newProject_55' | translate}}</option>
+                        <option value='Lateral izquierdo' [selected]="r.position == 'Lateral izquierdo'">{{'new-project.newProject_56' | translate}}</option>
+                        <option value='Defensa central' [selected]="r.position == 'Defensa central'">{{'new-project.newProject_57' | translate}}</option>
+                        <option value='Lateral derecho' [selected]="r.position == 'Lateral derecho'">{{'new-project.newProject_58' | translate}}</option>
+                        <option value='Centrocampista Ofensivo' [selected]="r.position == 'Centrocampista Ofensivo'">{{'new-project.newProject_59' | translate}}</option>
+                        <option value='Centrocampista Defensivo' [selected]="r.position == 'Centrocampista Defensivo'">{{'new-project.newProject_60' | translate}}</option>
+                        <option value='Extremo Derecho' [selected]="r.position == 'Extremo Derecho'">{{'new-project.newProject_61' | translate}}</option>
+                        <option value='Extremo Izquierdo' [selected]="r.position == 'Extremo Izquierdo'">{{'new-project.newProject_62' | translate}}</option>
+                        <option value='Mediapunta' [selected]="r.position == 'Mediapunta'">{{'new-project.newProject_63' | translate}}</option>
+                        <option value='Delantero' [selected]="r.position == 'Delantero'">{{'new-project.newProject_64' | translate}}</option>
                       </select>
                     </span>
                   </ion-col>
@@ -604,18 +604,18 @@
                     <span class="reconfigure">
                       <select [attr.data-id]="r.id" class="positions_2 form-control" (change)="updateRoster(r,$event,'position_2')">
                         <option selected></option>
-                        <option [selected]="r.position_2 == 'Portero'">Portero</option>
-                        <option [selected]="r.position_2 == 'Carrilero'">Carrilero</option>
-                        <option [selected]="r.position_2 == 'Mediocampista'">Mediocampista</option>
-                        <option [selected]="r.position_2 == 'Lateral izquierdo'">Lateral izquierdo</option>
-                        <option [selected]="r.position_2 == 'Defensa central'">Defensa central</option>
-                        <option [selected]="r.position_2 == 'Lateral derecho'">Lateral derecho</option>
-                        <option [selected]="r.position_2 == 'Centrocampista Ofensivo'">Centrocampista Ofensivo</option>
-                        <option [selected]="r.position_2 == 'Centrocampista Defensivo'">Centrocampista Defensivo</option>
-                        <option [selected]="r.position_2 == 'Extremo Derecho'">Extremo Derecho</option>
-                        <option [selected]="r.position_2 == 'Extremo Izquierdo'">Extremo Izquierdo</option>
-                        <option [selected]="r.position_2 == 'Mediapunta'">Mediapunta</option>
-                        <option [selected]="r.position_2 == 'Delantero'">Delantero</option>
+                        <option value='Portero' [selected]="r.position_2 == 'Portero'">{{'new-project.newProject_53' | translate}}</option>
+                        <option value='Carrilero' [selected]="r.position_2 == 'Carrilero'">{{'new-project.newProject_54' | translate}}</option>
+                        <option value='Mediocampista' [selected]="r.position_2 == 'Mediocampista'">{{'new-project.newProject_55' | translate}}</option>
+                        <option value='Lateral izquierdo' [selected]="r.position_2 == 'Lateral izquierdo'">{{'new-project.newProject_56' | translate}} izquierdo</option>
+                        <option value='Defensa central' [selected]="r.position_2 == 'Defensa central'">{{'new-project.newProject_57' | translate}} central</option>
+                        <option value='Lateral derecho' [selected]="r.position_2 == 'Lateral derecho'">{{'new-project.newProject_58' | translate}} derecho</option>
+                        <option value='Centrocampista Ofensivo' [selected]="r.position_2 == 'Centrocampista Ofensivo'">{{'new-project.newProject_59' | translate}} Ofensivo</option>
+                        <option value='Centrocampista Defensivo' [selected]="r.position_2 == 'Centrocampista Defensivo'">{{'new-project.newProject_60' | translate}} Defensivo</option>
+                        <option value='Extremo Derecho' [selected]="r.position_2 == 'Extremo Derecho'">{{'new-project.newProject_61' | translate}} Derecho</option>
+                        <option value='Extremo Izquierdo' [selected]="r.position_2 == 'Extremo Izquierdo'">{{'new-project.newProject_62' | translate}} Izquierdo</option>
+                        <option value='Mediapunta' [selected]="r.position_2 == 'Mediapunta'">{{'new-project.newProject_63' | translate}}</option>
+                        <option value='Delantero' [selected]="r.position_2 == 'Delantero'">{{'new-project.newProject_64' | translate}}</option>
                       </select>
                     </span>
                   </ion-col>
@@ -644,7 +644,7 @@
             </ion-row>
 
             <ion-row *ngIf="rosters.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{'new-project.newProject_65' | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -654,7 +654,7 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 6">
-                    Añadir Futbolista
+                    {{'new-project.newProject_66' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -669,7 +669,7 @@
 
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 2">
-                    Ok
+                    {{'new-project.newProject_67' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -697,7 +697,7 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Nombre
+                {{'new-project.newProject_68' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_name">
@@ -707,7 +707,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Núm.
+                {{'new-project.newProject_69' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_number">
@@ -716,50 +716,50 @@
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Principal
+                {{'new-project.newProject_70' | translate}}
               </label>
 
               <select [(ngModel)]="player_position" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{'new-project.newProject_53' | translate}}</option>
+                <option value='Carrilero'>{{'new-project.newProject_54' | translate}}</option>
+                <option value='Mediocampista'>{{'new-project.newProject_55' | translate}}</option>
+                <option value='Lateral izquierdo'>{{'new-project.newProject_56' | translate}}</option>
+                <option value='Defensa central'>{{'new-project.newProject_57' | translate}}</option>
+                <option value='Lateral derecho'>{{'new-project.newProject_58' | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{'new-project.newProject_59' | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{'new-project.newProject_60' | translate}}</option>
+                <option value='Extremo Derecho'>{{'new-project.newProject_61' | translate}}</option>
+                <option value='Extremo Izquierdo'>{{'new-project.newProject_62' | translate}}</option>
+                <option value='Mediapunta'>{{'new-project.newProject_63' | translate}}</option>
+                <option value='Delantero'>{{'new-project.newProject_64' | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Secundaria
+                {{'new-project.newProject_71' | translate}}
               </label>
 
               <select [(ngModel)]="player_position_2" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{'new-project.newProject_53' | translate}}</option>
+                <option value='Carrilero'>{{'new-project.newProject_54' | translate}}</option>
+                <option value='Mediocampista'>{{'new-project.newProject_55' | translate}}</option>
+                <option value='Lateral izquierdo'>{{'new-project.newProject_56' | translate}}</option>
+                <option value='Defensa central'>{{'new-project.newProject_57' | translate}}</option>
+                <option value='Lateral derecho'>{{'new-project.newProject_58' | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{'new-project.newProject_59' | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{'new-project.newProject_60' | translate}}</option>
+                <option value='Extremo Derecho'>{{'new-project.newProject_61' | translate}}</option>
+                <option value='Extremo Izquierdo'>{{'new-project.newProject_62' | translate}}</option>
+                <option value='Mediapunta'>{{'new-project.newProject_63' | translate}}</option>
+                <option value='Delantero'>{{'new-project.newProject_64' | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3" offset="3">
 
               <label class="modal-label">
-                Fecha de Nac.
+                {{'new-project.newProject_72' | translate}}
               </label>
 
               <input type="date" class="modal-input" [(ngModel)]="player_bday">             
@@ -769,13 +769,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Sexo
+                {{'new-project.newProject_73' | translate}}
               </label>
 
               <select [(ngModel)]="player_sex" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Masculino</option>
-                <option>Femenino</option>
+                <option value="Masculino">{{'new-project.newProject_74' | translate}}</option>
+                <option value="Femenino">{{'new-project.newProject_75' | translate}}</option>
               </select>
 
             </ion-col>
@@ -783,7 +783,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Peso
+                {{'new-project.newProject_76' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_weight">
@@ -793,7 +793,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Altura
+                {{'new-project.newProject_77' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_height">
@@ -803,13 +803,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Dominancia
+                {{'new-project.newProject_78' | translate}}
               </label>
 
               <select [(ngModel)]="player_side" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Diestro</option>
-                <option>Zurdo</option>
+                <option value="Diestro">{{'new-project.newProject_79' | translate}}</option>
+                <option value="Zurdo">{{'new-project.newProject_80' | translate}}</option>
               </select>
               
             </ion-col>
@@ -825,7 +825,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Teléfono de Contacto
+                {{'new-project.newProject_81' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_phone">
@@ -835,7 +835,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Email de Contacto
+                {{'new-project.newProject_82' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_email">
@@ -844,7 +844,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Características o atributos
+                {{'new-project.newProject_83' | translate}}
               </label>
 
               <textarea [(ngModel)]="player_notes" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="6"></textarea>
@@ -856,13 +856,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!player_name" (click)="savePlayer()">
-                    Agregar
+                    {{'new-project.newProject_84' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 5">
-                    Cancelar
+                    {{'new-project.newProject_85' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -879,7 +879,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Goles equipo local
+                {{'new-project.newProject_86' | translate}}
               </label>
 
               <input type="number" class="modal-input" [(ngModel)]="home_score">
@@ -888,7 +888,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Goles equipo visitante
+                {{'new-project.newProject_87' | translate}}
               </label>
 
               <input type="number" class="modal-input" [(ngModel)]="away_score">
@@ -897,7 +897,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Fecha del partido
+                {{'new-project.newProject_88' | translate}}
               </label>
 
               <!-- <ion-datetime [(ngModel)]="date" class="modal-input" cancel-text="Cancelar" done-text="Ok" displayFormat="DD-MM-YYYY"></ion-datetime> -->
@@ -908,7 +908,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Hora del partido
+                {{'new-project.newProject_89' | translate}}
               </label>
 
               <!-- <ion-datetime [(ngModel)]="hour" class="modal-input" cancel-text="Cancelar" done-text="Ok" displayFormat="HH:mm"></ion-datetime> -->
@@ -919,7 +919,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Ubicación
+                {{'new-project.newProject_90' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="location">
@@ -928,7 +928,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Asistentes
+                {{'new-project.newProject_91' | translate}}
               </label>
 
               <input type="number" class="modal-input" [(ngModel)]="attendances">
@@ -936,7 +936,7 @@
 
             <ion-col size="3">
               <label class="modal-label">
-                Periodos
+                {{'new-project.newProject_92' | translate}}
               </label>
 
               <label style="margin-right: 24px; margin-top: 20px; display: inline-block;">
@@ -958,7 +958,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Minutos
+                {{'new-project.newProject_93' | translate}}
               </label>
 
               <input type="number" class="modal-input" [(ngModel)]="minutes">
@@ -968,13 +968,13 @@
             <ion-col size="3">
               
               <label class="modal-label">
-                Competición
+                {{'new-project.newProject_94' | translate}}
               </label>
 
               <select [(ngModel)]="competition" class="form-control" style="top: 0; height: 37px;">
                 <option selected></option>
-                <option>Liga</option>
-                <option>Copa</option>
+                <option value="Liga">{{'new-project.newProject_95' | translate}}</option>
+                <option value="Copa">{{'new-project.newProject_96' | translate}}</option>
               </select>
             </ion-col>
 
@@ -982,23 +982,23 @@
             <ion-col size="3">
               
               <label class="modal-label">
-                Jornada
+                {{'new-project.newProject_97' | translate}}
               </label>
 
               <select [(ngModel)]="jornada" class="form-control" *ngIf="competition == 'Liga'" style="top: 0; height: 37px;">
                 <option selected></option>
-                <option *ngFor="let j of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]">Jornada {{j}}</option>
+                <option *ngFor="let j of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]">{{'new-project.newProject_98' | translate}} {{j}}</option>
               </select>
 
               <select [(ngModel)]="jornada" class="form-control" *ngIf="competition == 'Copa'" style="top: 0; height: 37px;">
                 <option selected></option>
-                <option>Fase de Grupos Jornada 1</option>
-                <option>Fase de Grupos Jornada 2</option>
-                <option>Fase de Grupos Jornada 3</option>
-                <option>Octavos de final</option>
-                <option>Cuartos de final</option>
-                <option>Semifinal</option>
-                <option>Final</option>
+                <option>{{'new-project.newProject_99' | translate}}</option>
+                <option>{{'new-project.newProject_100' | translate}}</option>
+                <option>{{'new-project.newProject_101' | translate}}</option>
+                <option>{{'new-project.newProject_102' | translate}}</option>
+                <option>{{'new-project.newProject_103' | translate}}</option>
+                <option>{{'new-project.newProject_104' | translate}}</option>
+                <option>{{'new-project.newProject_105' | translate}}</option>
               </select>
             </ion-col>
 
@@ -1011,13 +1011,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="upProject()">
-                    Listo
+                    {{'new-project.newProject_106' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 2">
-                    Cancelar
+                    {{'new-project.newProject_107' | translate}}
                   </button>
                 </ion-col>
               </ion-row>

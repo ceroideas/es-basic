@@ -12,7 +12,7 @@
   <img src="assets/loader.gif" alt="" style="position: absolute; top: 0; right: 0; width: 4px; z-index: 9999;" *ngIf="recorder">
 
   <!-- <img src="assets/logo-f.png" alt="" style="position: absolute; bottom: 16px; right: 16px; width: 200px; z-index: 10000; opacity: .6;" *ngIf="recorder"> -->
-  <span style="position: absolute; bottom: 200px; right: 16px; display: block; z-index: 10000; font-size: 32px;" *ngIf="recorder"><i>es-basic.com</i></span>
+  <span style="position: absolute; bottom: 200px; right: 16px; display: block; z-index: 10000; font-size: 32px;" *ngIf="recorder"><i>esbasic.es</i></span>
   <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">{{ folder }}</ion-title>
@@ -51,7 +51,7 @@
         </div>
 
 
-      <h5 style="margin: 0; padding: 6px 0; cursor: pointer;">Sesión actual</h5>
+      <h5 style="margin: 0; padding: 6px 0; cursor: pointer;">{{'main.session' | translate}}</h5>
 
       <!-- <h4 *ngIf="!showSession" (click)="showSession = true" style="margin: 0; padding: 6px 0; cursor: pointer;">Sesión actual <ion-icon style="position: relative; top: 4px;" name="caret-down"></ion-icon></h4> -->
 
@@ -78,13 +78,13 @@
                 <ion-icon [name]="'radio-button-'+(o.difficult >= 5 ? 'on' : 'off')+'-outline'"></ion-icon> <br>
                 <!-- Desde: {{o.min_age}} Hasta: {{o.max_age}} años <br> -->
 
-                <b>Objetivos Principales</b>
+                <b>{{'main.main_objectives' | translate}}</b>
                 <div style="color: #c0c0c0; margin-bottom: 4px">{{o.objetives}}&nbsp;</div>
 
                 <!-- <b>Objetivos Secundarios</b>
                 <div>{{o.objetives_sec}}&nbsp;</div> -->
 
-                Participantes: {{o.participants}} <br>
+                {{'main.participants' | translate}}: {{o.participants}} <br>
 
               </div>
           </div>
@@ -131,21 +131,21 @@
 
         <div style="width: 220px; background-color: #444; text-align: left; padding: 8px; font-size: 12px !important; overflow: auto; max-height: calc(100vh - 200px);" *ngIf="project && project.isExercise">
 
-          <b>Datos del Ejercicio </b> | <span (click)="editProject(project)" style="cursor: pointer; color: #c1c1c1;">Editar</span><br> <br>
+          <b>{{'main.exercise_data' | translate}} </b> | <span (click)="editProject(project)" style="cursor: pointer; color: #c1c1c1;">{{'main.edit' | translate}}</span><br> <br>
           
-          <label>Descripcion</label>
+          <label>{{'main.description' | translate}}</label>
           <p style="font-size: 14px">{{project.description}} </p> <br>
 
-          <label>Objetivo Principal</label>
+          <label>{{'main.main_objective' | translate}}</label>
           <p style="font-size: 14px">{{project.objetives}} </p> <br>
 
-          <label>Objetivo Secundario</label>
+          <label>{{'main.second_objective' | translate}}</label>
           <p style="font-size: 14px">{{project.objetives_sec}} </p> <br>
 
-          <label>Condicionantes</label>
+          <label>{{'main.conditions' | translate}}</label>
           <p style="font-size: 14px">{{project.conditions}} </p> <br>
 
-          <label>Variantes</label>
+          <label>{{'main.variants' | translate}}</label>
           <p style="font-size: 14px">{{project.variants}} </p>
 
         </div>
@@ -154,18 +154,18 @@
 
         <div style="width: 220px; background-color: #444; text-align: left; padding: 8px; font-size: 12px !important;" *ngIf="exercises?.length">
 
-          <b>Datos de la sesión </b>: {{session?.name}}<br> <br>
+          <b>{{'main.session_data' | translate}} </b>: {{session?.name}}<br> <br>
           
-          <label>Descripcion</label>
+          <label>{{'main.description' | translate}}</label>
           <p style="font-size: 14px">{{session?.description}} </p> <br>
 
-          <label>Objetivo Principal</label>
+          <label>{{'main.main_objective' | translate}}</label>
           <p style="font-size: 14px">{{session?.objetives}} </p> <br>
 
-          <label>Objetivo Secundario</label>
+          <label>{{'main.second_objective' | translate}}</label>
           <p style="font-size: 14px">{{session?.objetives_sec}} </p> <br>
 
-          <label>Otras consideraciones</label>
+          <label>{{'main.other_considerations' | translate}}</label>
           <p style="font-size: 14px">{{session?.notes}} </p>
 
         </div>
@@ -173,7 +173,7 @@
 
     </div>
 
-    <ion-button *ngIf="project" (click)="saveProject(true)" size="small" color="warning" style="z-index: 9999; position: relative;">Guardado rápido</ion-button>
+    <ion-button *ngIf="project" (click)="saveProject(true)" size="small" color="warning" style="z-index: 9999; position: relative;">{{'main.quick_save' | translate}}</ion-button>
 
     <!-- <div class="list-of-tools">
 
@@ -188,27 +188,34 @@
 
         <div class="inner-left-button" (click)="module = 1; isCanvas = false; isMainMenu = true;">
           <img src="assets/soccer-3.svg" alt="">
-          <small>DIRECCIÓN <br> METODOLÓGICA</small>
+          <small>{{'main.method' | translate}}</small>
         </div>
 
         <div class="inner-left-button" (click)="direccion()">
           <img src="assets/soccer-4.svg" alt="">
-          <small>DIRECCIÓN <br> DEPORTIVA</small>
+          <small>{{'main.sport' | translate}}</small>
         </div>
 
         <div class="inner-left-button" (click)="analisis()">
           <img src="assets/football-player.svg" alt="">
-          <small>ANÁLISIS <br> TÁCTICO</small>
+          <small>{{'main.tactical' | translate}}</small>
         </div>
 
         <div class="inner-left-button" (click)="openCalendar()">
           <img src="assets/calendar.png" alt="">
-          <small>CALENDARIO</small>
+          <small>{{'main.calendar' | translate}}</small>
         </div>
 
         <div class="inner-left-button" (click)="api.goPro()" *ngIf="!api.vPro">
           <img src="assets/premium.svg" alt="">
-          <small>VERSIÓN <br> PRO</small>
+          <small>{{'main.pro' | translate}}</small>
+        </div>
+
+        <div class="inner-left-button" style="overflow: hidden;">
+          <select (change)="changeLanguage()" [(ngModel)]="lang" style="padding: 25px;top: -16px;position: relative;left: -23px;">
+            <option value="es">ES</option>
+            <option value="pt">PT</option>
+          </select>
         </div>
 
       </div>
@@ -238,10 +245,10 @@
       </div>
 
       <div class="menu-header">
-        <span *ngIf="!isRoster">Menú</span>
+        <span *ngIf="!isRoster">{{'main.menu' | translate}}</span>
         <span *ngIf="isRoster">
-          <span *ngIf="team == 4">Artículos</span>
-          <span *ngIf="team != 4">Plantilla de Equipo {{team}}</span>
+          <span *ngIf="team == 4">{{'main.items' | translate}}</span>
+          <span *ngIf="team != 4">{{'main.team_template' | translate}} {{team}}</span>
         </span>
       </div>
 
@@ -265,7 +272,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-nuevo-proyecto.svg" alt="">
                 </div>
-                <span>Nueva Tarea</span>
+                <span>{{'main.new_task' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -276,7 +283,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-abrir-proyecto.svg" style="width: 40%" alt="">
                 </div>
-                <span>Abrir Tarea</span>
+                <span>{{'main.open_task' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -287,7 +294,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-jugas.svg" alt="">
                 </div>
-                <span style="position: relative; top: -8px;">Sesiones de entrenamiento</span>
+                <span style="position: relative; top: -8px;">{{'main.trainning_session' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -298,7 +305,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-documento.svg" alt="" style="width: 30%;">
                 </div>
-                <span>Exportar PDF</span>
+                <span>{{'main.export_pdf' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -333,7 +340,7 @@
                 <div class="image-holder">
                   <img src="assets/player.svg" alt="">
                 </div>
-                <span style="position: relative; top: -8px;">Análisis de <br> Futbolistas</span>
+                <span style="position: relative; top: -8px;">{{'main.football_analysis' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -344,8 +351,30 @@
                 <div class="image-holder">
                   <img src="assets/icono-pizarras.svg" alt="">
                 </div>
-                <span>Equipos</span>
+                <span>{{'main.teams' | translate}}</span>
                 <!-- <span>Pizarras</span> -->
+              </div>
+            </div>
+          </ion-col>
+
+          <ion-col size="2">
+            <div class="menu-button" (click)="openScouting()">
+              <div class="inner-menu-button">
+                <div class="image-holder">
+                  <img src="assets/icono-documento.svg" style="width: 40%" alt="">
+                </div>
+                <span style="position: relative; top: -8px;">{{'main.scouting' | translate}}</span>
+              </div>
+            </div>
+          </ion-col>
+
+          <ion-col size="2">
+            <div class="menu-button" (click)="openGame()">
+              <div class="inner-menu-button">
+                <div class="image-holder">
+                  <img src="assets/icono-documento.svg" style="width: 40%" alt="">
+                </div>
+                <span style="position: relative; top: -8px;">{{'main.game_sheet' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -369,7 +398,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-nuevo-proyecto.svg" alt="">
                 </div>
-                <span>Nuevo Partido</span>
+                <span>{{'main.new_game' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -380,7 +409,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-abrir-proyecto.svg" style="width: 40%" alt="">
                 </div>
-                <span>Abrir Partido</span>
+                <span>{{'main.open_game' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -391,7 +420,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-jugas.svg" alt="">
                 </div>
-                <span>Eventos</span>
+                <span>{{'main.events' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -402,7 +431,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-documento.svg" alt="" style="width: 30%;">
                 </div>
-                <span>Informes</span>
+                <span>{{'main.report' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -413,7 +442,7 @@
                 <div class="image-holder">
                   <img src="assets/icono-documento.svg" alt="" style="width: 30%;">
                 </div>
-                <span>Exportar PDF</span>
+                <span>{{'main.export_pdf' | translate}}</span>
               </div>
             </div>
           </ion-col>
@@ -464,7 +493,7 @@
             <div style="margin: auto;" (click)="configureTeam()">
               <ion-icon src="assets/icono-ajustes.svg" style="font-size: 32px;"></ion-icon> <br>
 
-              <span style="font-size: 10px;">Configurar equipo</span>
+              <span style="font-size: 10px;">{{'main.config_team' | translate}}</span>
             </div>
           </ion-col>
           
@@ -479,9 +508,9 @@
                 <div>
                   <div class="tools">
                     <div (click)="clone($event)" class="rotate0deg increment">
-                      <img class="rotable hidden-pdf {{a.class}}" [src]="a.image" data-height="40px" style="width: 50px; margin: 6px auto !important; display: block; margin: auto; pointer-events: none" alt="">
+                      <img class="rotable hidden-pdf {{a.class}}" [src]="a.image" data-height="40px" style="margin: 6px auto !important; display: block; margin: auto; pointer-events: none" alt="">
                     </div>
-                      <span>Articulo {{i+1}}</span>
+                    <span>{{'main.items' | translate}} {{i+1}}</span>
                   </div>
                 </div>
 
@@ -525,12 +554,12 @@
 
                 <br>
 
-                Frame {{scene+1}} / {{project.scenes?.length}}
-                <ion-button size="small" style="position: relative; top: -7px;" (click)="addFrame()">Añadir frame</ion-button>
+                {{'main.frame' | translate}} {{scene+1}} / {{project.scenes?.length}}
+                <ion-button size="small" style="position: relative; top: -7px;" (click)="addFrame()">{{'main.add_frame' | translate}}</ion-button>
 
-                <ion-button *ngIf="api.desktop" size="small" color="warning" style="position: relative; top: -7px;" (click)="startPlay(true)">Exportar Mp4</ion-button>
+                <ion-button *ngIf="api.desktop" size="small" color="warning" style="position: relative; top: -7px;" (click)="startPlay(true)">{{'main.export_mp4' | translate}}</ion-button>
 
-                <ion-button *ngIf="api.desktop" size="small" color="success" style="position: relative; top: -7px;" (click)="downloadFrame()">Descargar Imágen</ion-button>
+                <ion-button *ngIf="api.desktop" size="small" color="success" style="position: relative; top: -7px;" (click)="downloadFrame()">{{'main.download_image' | translate}}</ion-button>
 
 
               </ion-col>
@@ -538,21 +567,21 @@
                 <ion-row>
                   <ion-col size="4" style="text-align: center;" (click)="backward()">
                     <img style="height: 48px;" src="assets/icono-atras.svg" alt="">
-                    <small style="display: block; margin-top: 3px; font-size: 10px;">Atras</small>
+                    <small style="display: block; margin-top: 3px; font-size: 10px;">{{'main.back' | translate}}</small>
                   </ion-col>
                   <ion-col size="4" style="text-align: center;" (click)="startPlay()" *ngIf="!setIntervalScenes">
                     <img style="height: 48px;" src="assets/icono-play.svg" alt="">
-                    <small style="display: block; margin-top: 3px; font-size: 10px;">Play</small>
+                    <small style="display: block; margin-top: 3px; font-size: 10px;">{{'main.play' | translate}}</small>
                   </ion-col>
 
                   <ion-col size="4" style="text-align: center;" (click)="stop()" *ngIf="setIntervalScenes">
                     <img style="height: 48px;" src="assets/stop-button.svg" alt="">
-                    <small style="display: block; margin-top: 3px; font-size: 10px;">Stop</small>
+                    <small style="display: block; margin-top: 3px; font-size: 10px;">{{'main.stop' | translate}}</small>
                   </ion-col>
 
                   <ion-col size="4" style="text-align: center;" (click)="forward()">
                     <img style="height: 48px;" src="assets/icono-adelante.svg" alt="">
-                    <small style="display: block; margin-top: 3px; font-size: 10px;">Adelante</small>
+                    <small style="display: block; margin-top: 3px; font-size: 10px;">{{'main.forward' | translate}}</small>
                   </ion-col>
                 </ion-row>
               </ion-col>
@@ -560,11 +589,11 @@
                 <ion-row>
                   <ion-col [ngClass]="{'del-dis':project.scenes?.length <= 1}" size="6" style="text-align: center;" (click)="delete()">
                     <img style="height: 40px;" src="assets/icono-papelera.svg" alt="">
-                    <small style="display: block; margin-top: 11px; font-size: 10px;">Borrar seleccionado</small>
+                    <small style="display: block; margin-top: 11px; font-size: 10px;">{{'main.delete_selected' | translate}}</small>
                   </ion-col>
                   <ion-col size="6" style="text-align: center;" (click)="speed()">
                     <h1 style="margin: 15px auto 9px">{{ shownSpeed }}X</h1>
-                    <small style="display: block; margin-top: 3px; font-size: 10px;">Velocidad</small>
+                    <small style="display: block; margin-top: 3px; font-size: 10px;">{{'main.speed' | translate}}</small>
                   </ion-col>
                 </ion-row>
               </ion-col>
@@ -579,43 +608,43 @@
 
             <div class="tools">
               <div class="brush" (click)="brush = 2; selector = 'curve'; addArrow = false; setDash([5,2.5])" style="background-image: url(assets/icono-linea-puntos.svg)"></div>
-              <span [ngClass]="{'brush-selected':brush == 2}">Curva puntos</span>
+              <span [ngClass]="{'brush-selected':brush == 2}">{{'main.point_curve' | translate}}</span>
             </div>
           </ion-col>
 
           <ion-col size="1" *ngIf="isCanvas && !isAnim">
             <div class="tools">
               <div class="brush" (click)="brush = 3; selector = 'zigzag'; addArrow = false; setDash([])" style="background-image: url(assets/icono-flecha-zigzag.svg)"></div>
-              <span [ngClass]="{'brush-selected':brush == 3}">Flecha ZigZag</span>
+              <span [ngClass]="{'brush-selected':brush == 3}">{{'main.zigzag' | translate}}</span>
             </div>
 
             <div class="tools">
               <div class="brush" (click)="brush = 4; selector = 'double'; addArrow = true; setDash([])" style="background-image: url(assets/icono-flecha-doble.svg)"></div>
-              <span [ngClass]="{'brush-selected':brush == 4}">Flecha doble</span>
+              <span [ngClass]="{'brush-selected':brush == 4}">{{'main.double_arrow' | translate}}</span>
             </div>
           </ion-col>
 
           <ion-col size="1" *ngIf="isCanvas && !isAnim">
             <div class="tools">
               <div class="brush" (click)="brush = 5; selector = 'line'; addArrow = false; setDash([])" style="background-image: url(assets/icono-linea-recta.svg)"></div>
-              <span [ngClass]="{'brush-selected':brush == 5}">Linea Recta</span>
+              <span [ngClass]="{'brush-selected':brush == 5}">{{'main.rect_line' | translate}}</span>
             </div>
 
             <div class="tools">
               <div class="brush" (click)="brush = 6; selector = 'curve'; addArrow = false; setDash([])" style="background-image: url(assets/icono-linea-curva.svg)"></div>
-              <span [ngClass]="{'brush-selected':brush == 6}">Linea Curva</span>
+              <span [ngClass]="{'brush-selected':brush == 6}">{{'main.curve_line' | translate}}</span>
             </div>
           </ion-col>
 
           <ion-col size="1" *ngIf="isCanvas && !isAnim">
             <div class="tools">
               <div class="brush" (click)="brush = 7; selector = 'pen'; addArrow = false; setDash([])" style="background-image: url(assets/icono-linea-zigzag.svg)"></div>
-              <span [ngClass]="{'brush-selected':brush == 7}">Lápiz</span>
+              <span [ngClass]="{'brush-selected':brush == 7}">{{'main.pencil' | translate}}</span>
             </div>
 
             <div class="tools">
               <div class="brush" (click)="brush = 8; selector = 'line'; addArrow = false; setDash([5,2.5])" style="background-image: url(assets/icono-linea-puntos.svg)"></div>
-              <span [ngClass]="{'brush-selected':brush == 8}">Linea Puntos</span>
+              <span [ngClass]="{'brush-selected':brush == 8}">{{'main.dotted_line' | translate}}</span>
             </div>
           </ion-col>
 
@@ -628,26 +657,26 @@
                   <div class="brush" (click)="brush = 9; selector = 'square'; addArrow = false; setDash([])">
                     <ion-icon name="square-outline"></ion-icon>
                   </div>
-                  <span [ngClass]="{'brush-selected':brush == 9}">Cuadrado</span>
+                  <span [ngClass]="{'brush-selected':brush == 9}">{{'main.square' | translate}}</span>
                 </div>
 
                 <div class="tools">
                   <div class="brush" (click)="brush = 10; selector = 'circle'; addArrow = false; setDash([])">
                     <ion-icon name="ellipse-outline"></ion-icon>
                   </div>
-                  <span [ngClass]="{'brush-selected':brush == 10}">Circulo</span>
+                  <span [ngClass]="{'brush-selected':brush == 10}">{{'main.circle' | translate}}</span>
                 </div>
               </ion-col>
 
               <ion-col size="4" *ngIf="isCanvas && !isAnim">
                 <div class="tools" (click)="brush = 11; selector = 'eraser'; addArrow = false; setDash([])">
                   <div class="brush less" style="background-image: url(assets/icono-borrar-individual.svg)"></div>
-                  <span [ngClass]="{'brush-selected':brush == 11}">Borrar</span>
+                  <span [ngClass]="{'brush-selected':brush == 11}">{{'main.delete' | translate}}</span>
                 </div>
 
                 <div class="tools">
                   <div class="brush less" (click)="clearCanvas()" style="background-image: url(assets/icono-borrar-todo.svg)"></div>
-                  <span>Borrar Todo</span>
+                  <span>{{'main.delete_all' | translate}}</span>
                 </div>
               </ion-col>
 
@@ -656,7 +685,7 @@
                   <div class="brush less" (click)="addText()">
                     <ion-icon name="text-outline"></ion-icon>
                   </div>
-                  <span>Insertar <br> Texto</span>
+                  <span>{{'main.insert_text' | translate}}</span>
                 </div>
               </ion-col>
             
@@ -671,7 +700,7 @@
               <ion-icon name="ellipse" (click)="lineWidth = 15" [ngClass]="lineWidth == 15 ? 'toolSelected' : ''" style="display: block; margin-bottom:1px; font-size: 18px;"></ion-icon>
               <ion-icon name="ellipse" (click)="lineWidth = 30" [ngClass]="lineWidth == 30 ? 'toolSelected' : ''" style="display: block; margin-bottom:3px; font-size: 28px;"></ion-icon>
 
-              <span>Tamaño pincel</span>
+              <span>{{'main.brush_size' | translate}}</span>
             </div>
           </ion-col>
 
@@ -686,7 +715,7 @@
 
               <ion-icon name="ellipse" (click)="selectColor = true" style="display: block; margin-bottom:8px; font-size: 56px; color: {{selectedColor}}"></ion-icon>
 
-              <span>Color Pincel</span>
+              <span>{{'main.brush_color' | translate}}</span>
             </div>
           </ion-col>
 
@@ -707,7 +736,7 @@
                     10
                   </div> -->
 
-                <span>Artículos</span>
+                <span>{{'main.items' | translate}}</span>
             </div>
           </ion-col>
 
@@ -731,7 +760,7 @@
                         10
                       </div> -->
 
-                    <span>Plantilla 1</span>
+                    <span>{{'main.template_1' | translate}}</span>
                 </div>
               </ion-col>
 
@@ -744,7 +773,7 @@
                         10
                       </div> -->
 
-                    <span>Plantilla 2</span>
+                    <span>{{'main.template_2' | translate}}</span>
                 </div>
               </ion-col>
 
@@ -757,7 +786,7 @@
                         10
                       </div> -->
 
-                    <span>Plantilla 3</span>
+                    <span>{{'main.template_3' | translate}}</span>
                 </div>
               </ion-col>
 

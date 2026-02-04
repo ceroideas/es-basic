@@ -8,11 +8,23 @@ import { FolderPageRoutingModule } from './folder-routing.module';
 
 import { FolderPage } from './folder.page';
 
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {createTranslateLoader} from "../../app/app.module";
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild({
+      defaultLanguage: 'es',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
     FolderPageRoutingModule
   ],
   declarations: [FolderPage],

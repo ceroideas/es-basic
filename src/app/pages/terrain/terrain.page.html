@@ -7,7 +7,7 @@
 <ion-content>
 
   <div id="modal-header">
-    Terreno de juego
+    {{'terrains.terrains_1' | translate}}
   </div>
   <div id="outer-modal">
     <div id="inner-modal">
@@ -24,7 +24,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terrain = 1" [checked]="terrain == 1">
-                <span style="position: relative; top: 8px; display: block;">Opción 1</span>
+                <span style="position: relative; top: 8px; display: block;">{{'terrains.terrains_2' | translate}}</span>
               </label>
             </ion-col>
 
@@ -35,7 +35,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terrain = 2" [checked]="terrain == 2">
-                <span style="position: relative; top: 8px; display: block;">Opción 2</span>
+                <span style="position: relative; top: 8px; display: block;">{{'terrains.terrains_3' | translate}}</span>
               </label>
             </ion-col>
 
@@ -46,7 +46,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terrain = 3" [checked]="terrain == 3">
-                <span style="position: relative; top: 8px; display: block;">Opción 3</span>
+                <span style="position: relative; top: 8px; display: block;">{{'terrains.terrains_4' | translate}}</span>
               </label>
             </ion-col>
           </ion-row>
@@ -56,7 +56,7 @@
           <ion-row>
             <ion-col offset="4" size="4">
               <button class="button-login" [disabled]="!terrain" (click)="selectTerrain()">
-                SELECCIONAR
+                {{'terrains.terrains_5' | translate}}
               </button>
             </ion-col>
           </ion-row>

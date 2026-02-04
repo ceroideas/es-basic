@@ -10,12 +10,15 @@ import { NewExercisePage } from './new-exercise.page';
 
 import { PipesModule } from '../../pipes/pipes.module';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     PipesModule,
+    TranslateModule.forChild(),
     NewExercisePageRoutingModule
   ],
   declarations: [NewExercisePage]

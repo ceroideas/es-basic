@@ -7,31 +7,31 @@
 <ion-content>
 
   <div id="modal-header" *ngIf="step == 1">
-    Espacio de entrenamiento
+    {{'new-exercise.newExercise_1' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 2">
-    Configuración del ejercicio
+    {{'new-exercise.newExercise_2' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 3">
-    Cargar Equipos
+    {{'new-exercise.newExercise_3' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 4">
-    squipo
+    {{'new-exercise.newExercise_4' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 5">
-    Plantilla
+    {{'new-exercise.newExercise_5' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 6">
-    Datos del Jugador
+    {{'new-exercise.newExercise_6' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 7">
-    Organización de la Tarea
+    {{'new-exercise.newExercise_7' | translate}}
   </div>
 
   <div id="outer-modal">
@@ -49,7 +49,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terreno = 1">
-                <span style="position: relative; top: 8px; display: block;">Opción 1</span>
+                <span style="position: relative; top: 8px; display: block;">{{'new-exercise.newExercise_8' | translate}}</span>
               </label>
             </ion-col>
 
@@ -60,7 +60,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terreno = 2">
-                <span style="position: relative; top: 8px; display: block;">Opción 2</span>
+                <span style="position: relative; top: 8px; display: block;">{{'new-exercise.newExercise_9' | translate}}</span>
               </label>
             </ion-col>
 
@@ -71,7 +71,7 @@
                 </div>
 
                   <input type="radio" name="terreno" (click)="terreno = 3">
-                <span style="position: relative; top: 8px; display: block;">Opción 3</span>
+                <span style="position: relative; top: 8px; display: block;">{{'new-exercise.newExercise_10' | translate}}</span>
               </label>
             </ion-col>
 
@@ -82,7 +82,7 @@
               <br>
               <label style="text-align: center;">
                   <input type="radio" name="terreno" (click)="terreno = 4">
-                <span style="position: relative; top: 8px; display: block;">Opción 4 (Sólo césped)</span>
+                <span style="position: relative; top: 8px; display: block;">{{'new-exercise.newExercise_11' | translate}}</span>
               </label>
             </ion-col>
           </ion-row>
@@ -92,7 +92,7 @@
           <ion-row class="row-bottom">
             <ion-col offset="4" size="4">
               <button class="button-login" [disabled]="!terreno" (click)="step = 2">
-                SIGUIENTE
+                {{'new-exercise.newExercise_12' | translate}}
               </button>
             </ion-col>
           </ion-row>
@@ -121,7 +121,7 @@
                   <br>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Colores</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_13' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -134,7 +134,7 @@
 
                         </div>
 
-                        Color número
+                        {{'new-exercise.newExercise_14' | translate}}
                       </div>
 
                       <div class="colors">
@@ -147,7 +147,7 @@
 
                         </div>
 
-                        Color principal
+                        {{'new-exercise.newExercise_15' | translate}}
                       </div>
 
                       <div class="colors">
@@ -160,7 +160,7 @@
 
                         </div>
 
-                        Color fondo
+                        {{'new-exercise.newExercise_16' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
@@ -176,7 +176,7 @@
                           10
                         </div>
 
-                        Estilo 1
+                        {{'new-exercise.newExercise_17' | translate}}
                       </div>
 
                       <div class="colors">
@@ -186,7 +186,7 @@
                           10
                         </div>
 
-                        Estilo 2
+                        {{'new-exercise.newExercise_18' | translate}}
                       </div>
 
                       <div class="colors">
@@ -196,13 +196,13 @@
                           10
                         </div>
 
-                        Estilo 3
+                        {{'new-exercise.newExercise_19' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Solo color sólido</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_20' | translate}}</span></ion-col>
                     <ion-col size="8">
                       <div class="colors">
                         <div class="color number"
@@ -217,13 +217,13 @@
                 </ion-col>
                 <ion-col size="6">
                   <button class="modal-button" (click)="selectedTeam = 1; step = 3">
-                    Equipo 1
+                    {{'new-exercise.newExercise_21' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button" *ngIf="team1" (click)="selectedTeam = 1; step = 5; preRosters(); prePlayers();">
-                    Plantilla
+                    {{'new-exercise.newExercise_22' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -247,7 +247,7 @@
                   <br>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Colores</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_23' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -260,7 +260,7 @@
 
                         </div>
 
-                        Color número
+                        {{'new-exercise.newExercise_24' | translate}}
                       </div>
 
                       <div class="colors">
@@ -273,7 +273,7 @@
 
                         </div>
 
-                        Color principal
+                        {{'new-exercise.newExercise_25' | translate}}
                       </div>
 
                       <div class="colors">
@@ -286,13 +286,13 @@
 
                         </div>
 
-                        Color fondo
+                        {{'new-exercise.newExercise_26' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Estilos</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_27' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -302,7 +302,7 @@
                           10
                         </div>
 
-                        Estilo 1
+                        {{'new-exercise.newExercise_28' | translate}}
                       </div>
 
                       <div class="colors">
@@ -312,7 +312,7 @@
                           10
                         </div>
 
-                        Estilo 2
+                        {{'new-exercise.newExercise_29' | translate}}
                       </div>
 
                       <div class="colors">
@@ -322,13 +322,13 @@
                           10
                         </div>
 
-                        Estilo 3
+                        {{'new-exercise.newExercise_30' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Solo color sólido</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_31' | translate}}</span></ion-col>
                     <ion-col size="8">
                       <div class="colors">
                         <div class="color number"
@@ -344,13 +344,13 @@
 
                 <ion-col size="6">
                   <button class="modal-button" (click)="selectedTeam = 2; step = 3">
-                    Equipo 2
+                    {{'new-exercise.newExercise_32' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button" *ngIf="team2" (click)="selectedTeam = 2; step = 5; preRosters(); prePlayers();">
-                    Plantilla
+                    {{'new-exercise.newExercise_33' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -374,7 +374,7 @@
                   <br>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Colores</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_34' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -387,7 +387,7 @@
 
                         </div>
 
-                        Color número
+                        {{'new-exercise.newExercise_35' | translate}}
                       </div>
 
                       <div class="colors">
@@ -400,7 +400,7 @@
 
                         </div>
 
-                        Color principal
+                        {{'new-exercise.newExercise_36' | translate}}
                       </div>
 
                       <div class="colors">
@@ -413,13 +413,13 @@
 
                         </div>
 
-                        Color fondo
+                        {{'new-exercise.newExercise_37' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Estilos</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_38' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -429,7 +429,7 @@
                           10
                         </div>
 
-                        Estilo 1
+                        {{'new-exercise.newExercise_39' | translate}}
                       </div>
 
                       <div class="colors">
@@ -439,7 +439,7 @@
                           10
                         </div>
 
-                        Estilo 2
+                        {{'new-exercise.newExercise_40' | translate}}
                       </div>
 
                       <div class="colors">
@@ -449,13 +449,13 @@
                           10
                         </div>
 
-                        Estilo 3
+                        {{'new-exercise.newExercise_41' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Solo color sólido</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-exercise.newExercise_42' | translate}}</span></ion-col>
                     <ion-col size="8">
                       <div class="colors">
                         <div class="color number"
@@ -471,13 +471,13 @@
 
                 <ion-col size="6">
                   <button class="modal-button" (click)="selectedTeam = 3; step = 3">
-                    Equipo 3
+                    {{'new-exercise.newExercise_43' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button" *ngIf="team3" (click)="selectedTeam = 3; step = 5; preRosters(); prePlayers();">
-                    Plantilla
+                    {{'new-exercise.newExercise_44' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -497,13 +497,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!team1 && !team2" (click)="step = 7">
-                    Siguiente
+                    {{'new-exercise.newExercise_45' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="modal.dismiss()">
-                    Cancelar
+                    {{'new-exercise.newExercise_46' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -527,9 +527,9 @@
           </ion-row>
           
           <ion-row style="border-bottom: 1px solid #ccc; text-align: center;">
-            <ion-col size="4">Logo</ion-col>
-            <ion-col size="4">Nombre</ion-col>
-            <ion-col size="3">Fecha de Creación</ion-col>
+            <ion-col size="4">{{'new-exercise.newExercise_47' | translate}}</ion-col>
+            <ion-col size="4">{{'new-exercise.newExercise_48' | translate}}</ion-col>
+            <ion-col size="3">{{'new-exercise.newExercise_49' | translate}}</ion-col>
             <!-- <ion-col size="3">Favorito</ion-col> -->
             <ion-col size="1"></ion-col>
           </ion-row>
@@ -560,7 +560,7 @@
             </ion-row>
 
             <ion-row *ngIf="teams.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{'new-exercise.newExercise_50' | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -570,7 +570,7 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="goCreate()">
-                    Nuevo Equipo
+                   {{'new-exercise.newExercise_51' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -579,13 +579,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="selectTeam()">
-                    Cargar
+                    {{'new-exercise.newExercise_52' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 2">
-                    Cancelar
+                    {{'new-exercise.newExercise_53' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -610,7 +610,7 @@
             <ion-col size="9">
 
               <label class="modal-label">
-                Nombre del equipo
+                {{'new-exercise.newExercise_54' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="team_name">
@@ -630,13 +630,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!team_name" (click)="saveTeam()">
-                    Agregar
+                    {{'new-exercise.newExercise_55' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 2">
-                    Cancelar
+                    {{'new-exercise.newExercise_56' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -662,23 +662,23 @@
           
           <ion-row style="border-bottom: 1px solid #ccc; text-align: left;">
             <ion-col size="1"></ion-col>
-            <ion-col size="2">Nombre</ion-col>
-            <ion-col size="2">Email</ion-col>
-            <ion-col size="1">Teléfono</ion-col>
-            <ion-col size="1">Número</ion-col>
+            <ion-col size="2">{{'new-exercise.newExercise_57' | translate}}</ion-col>
+            <ion-col size="2">{{'new-exercise.newExercise_58' | translate}}</ion-col>
+            <ion-col size="1">{{'new-exercise.newExercise_59' | translate}}</ion-col>
+            <ion-col size="1">{{'new-exercise.newExercise_60' | translate}}</ion-col>
             
             <ion-col size="3" class="ion-no-padding">
 
               <ion-row>
 
-                <ion-col size="6">Posición Principal</ion-col>
-                <ion-col size="6">Posición Secundaria</ion-col>
+                <ion-col size="6">{{'new-exercise.newExercise_61' | translate}}</ion-col>
+                <ion-col size="6">{{'new-exercise.newExercise_62' | translate}}</ion-col>
                 
               </ion-row>
               
             </ion-col>
             
-            <ion-col size="1">Dominancia</ion-col>
+            <ion-col size="1">{{'new-exercise.newExercise_63' | translate}}</ion-col>
             <!-- <ion-col size="2">Peto</ion-col> -->
             <ion-col size="1"></ion-col>
             
@@ -723,18 +723,18 @@
                     <span class="reconfigure">
                       <select [attr.data-id]="r.id" class="positions form-control" (change)="updateRoster(r,$event,'position')">
                         <option selected></option>
-                        <option [selected]="r.position == 'Portero'">Portero</option>
-                        <option [selected]="r.position == 'Carrilero'">Carrilero</option>
-                        <option [selected]="r.position == 'Mediocampista'">Mediocampista</option>
-                        <option [selected]="r.position == 'Lateral izquierdo'">Lateral izquierdo</option>
-                        <option [selected]="r.position == 'Defensa central'">Defensa central</option>
-                        <option [selected]="r.position == 'Lateral derecho'">Lateral derecho</option>
-                        <option [selected]="r.position == 'Centrocampista Ofensivo'">Centrocampista Ofensivo</option>
-                        <option [selected]="r.position == 'Centrocampista Defensivo'">Centrocampista Defensivo</option>
-                        <option [selected]="r.position == 'Extremo Derecho'">Extremo Derecho</option>
-                        <option [selected]="r.position == 'Extremo Izquierdo'">Extremo Izquierdo</option>
-                        <option [selected]="r.position == 'Mediapunta'">Mediapunta</option>
-                        <option [selected]="r.position == 'Delantero'">Delantero</option>
+                        <option value='Portero' [selected]="r.position == 'Portero'">{{'new-exercise.newExercise_64' | translate}}</option>
+                        <option value='Carrilero' [selected]="r.position == 'Carrilero'">{{'new-exercise.newExercise_65' | translate}}</option>
+                        <option value='Mediocampista' [selected]="r.position == 'Mediocampista'">{{'new-exercise.newExercise_66' | translate}}</option>
+                        <option value='Lateral izquierdo' [selected]="r.position == 'Lateral izquierdo'">{{'new-exercise.newExercise_67' | translate}}</option>
+                        <option value='Defensa central' [selected]="r.position == 'Defensa central'">{{'new-exercise.newExercise_68' | translate}}</option>
+                        <option value='Lateral derecho' [selected]="r.position == 'Lateral derecho'">{{'new-exercise.newExercise_69' | translate}}</option>
+                        <option value='Centrocampista Ofensivo' [selected]="r.position == 'Centrocampista Ofensivo'">{{'new-exercise.newExercise_70' | translate}}</option>
+                        <option value='Centrocampista Defensivo' [selected]="r.position == 'Centrocampista Defensivo'">{{'new-exercise.newExercise_71' | translate}}</option>
+                        <option value='Extremo Derecho' [selected]="r.position == 'Extremo Derecho'">{{'new-exercise.newExercise_72' | translate}}</option>
+                        <option value='Extremo Izquierdo' [selected]="r.position == 'Extremo Izquierdo'">{{'new-exercise.newExercise_73' | translate}}</option>
+                        <option value='Mediapunta' [selected]="r.position == 'Mediapunta'">{{'new-exercise.newExercise_74' | translate}}</option>
+                        <option value='Delantero' [selected]="r.position == 'Delantero'">{{'new-exercise.newExercise_75' | translate}}</option>
                       </select>
                     </span>
                   </ion-col>
@@ -743,18 +743,18 @@
                     <span class="reconfigure">
                       <select [attr.data-id]="r.id" class="positions_2 form-control" (change)="updateRoster(r,$event,'position_2')">
                         <option selected></option>
-                        <option [selected]="r.position_2 == 'Portero'">Portero</option>
-                        <option [selected]="r.position_2 == 'Carrilero'">Carrilero</option>
-                        <option [selected]="r.position_2 == 'Mediocampista'">Mediocampista</option>
-                        <option [selected]="r.position_2 == 'Lateral izquierdo'">Lateral izquierdo</option>
-                        <option [selected]="r.position_2 == 'Defensa central'">Defensa central</option>
-                        <option [selected]="r.position_2 == 'Lateral derecho'">Lateral derecho</option>
-                        <option [selected]="r.position_2 == 'Centrocampista Ofensivo'">Centrocampista Ofensivo</option>
-                        <option [selected]="r.position_2 == 'Centrocampista Defensivo'">Centrocampista Defensivo</option>
-                        <option [selected]="r.position_2 == 'Extremo Derecho'">Extremo Derecho</option>
-                        <option [selected]="r.position_2 == 'Extremo Izquierdo'">Extremo Izquierdo</option>
-                        <option [selected]="r.position_2 == 'Mediapunta'">Mediapunta</option>
-                        <option [selected]="r.position_2 == 'Delantero'">Delantero</option>
+                        <option value='Portero' [selected]="r.position_2 == 'Portero'">{{'new-exercise.newExercise_76' | translate}}</option>
+                        <option value='Carrilero' [selected]="r.position_2 == 'Carrilero'">{{'new-exercise.newExercise_77' | translate}}</option>
+                        <option value='Mediocampista' [selected]="r.position_2 == 'Mediocampista'">{{'new-exercise.newExercise_78' | translate}}</option>
+                        <option value='Lateral izquierdo' [selected]="r.position_2 == 'Lateral izquierdo'">{{'new-exercise.newExercise_79' | translate}}</option>
+                        <option value='Defensa central' [selected]="r.position_2 == 'Defensa central'">{{'new-exercise.newExercise_80' | translate}}</option>
+                        <option value='Lateral derecho' [selected]="r.position_2 == 'Lateral derecho'">{{'new-exercise.newExercise_81' | translate}}</option>
+                        <option value='Centrocampista Ofensivo' [selected]="r.position_2 == 'Centrocampista Ofensivo'">{{'new-exercise.newExercise_82' | translate}}</option>
+                        <option value='Centrocampista Defensivo' [selected]="r.position_2 == 'Centrocampista Defensivo'">{{'new-exercise.newExercise_83' | translate}}</option>
+                        <option value='Extremo Derecho' [selected]="r.position_2 == 'Extremo Derecho'">{{'new-exercise.newExercise_84' | translate}}</option>
+                        <option value='Extremo Izquierdo' [selected]="r.position_2 == 'Extremo Izquierdo'">{{'new-exercise.newExercise_85' | translate}}</option>
+                        <option value='Mediapunta' [selected]="r.position_2 == 'Mediapunta'">{{'new-exercise.newExercise_86' | translate}}</option>
+                        <option value='Delantero' [selected]="r.position_2 == 'Delantero'">{{'new-exercise.newExercise_87' | translate}}</option>
                       </select>
                     </span>
                   </ion-col>
@@ -783,7 +783,7 @@
             </ion-row>
 
             <ion-row *ngIf="rosters.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{'new-exercise.newExercise_88' | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -793,7 +793,7 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 6">
-                    Añadir Futbolista
+                    {{'new-exercise.newExercise_89' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -808,7 +808,7 @@
 
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 3">
-                    Ok
+                    {{'new-exercise.newExercise_90' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -836,7 +836,7 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Nombre
+                {{'new-exercise.newExercise_91' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_name">
@@ -846,7 +846,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Núm.
+                {{'new-exercise.newExercise_92' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_number">
@@ -855,50 +855,50 @@
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Principal
+                {{'new-exercise.newExercise_93' | translate}}
               </label>
 
               <select [(ngModel)]="player_position" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{'new-exercise.newExercise_76' | translate}}</option>
+                <option value='Carrilero'>{{'new-exercise.newExercise_77' | translate}}</option>
+                <option value='Mediocampista'>{{'new-exercise.newExercise_78' | translate}}</option>
+                <option value='Lateral izquierdo'>{{'new-exercise.newExercise_79' | translate}}</option>
+                <option value='Defensa central'>{{'new-exercise.newExercise_80' | translate}}</option>
+                <option value='Lateral derecho'>{{'new-exercise.newExercise_81' | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{'new-exercise.newExercise_82' | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{'new-exercise.newExercise_83' | translate}}</option>
+                <option value='Extremo Derecho'>{{'new-exercise.newExercise_84' | translate}}</option>
+                <option value='Extremo Izquierdo'>{{'new-exercise.newExercise_85' | translate}}</option>
+                <option value='Mediapunta'>{{'new-exercise.newExercise_86' | translate}}</option>
+                <option value='Delantero'>{{'new-exercise.newExercise_87' | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Secundaria
+                {{'new-exercise.newExercise_94' | translate}}
               </label>
 
               <select [(ngModel)]="player_position_2" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{'new-exercise.newExercise_76' | translate}}</option>
+                <option value='Carrilero'>{{'new-exercise.newExercise_77' | translate}}</option>
+                <option value='Mediocampista'>{{'new-exercise.newExercise_78' | translate}}</option>
+                <option value='Lateral izquierdo'>{{'new-exercise.newExercise_79' | translate}}</option>
+                <option value='Defensa central'>{{'new-exercise.newExercise_80' | translate}}</option>
+                <option value='Lateral derecho'>{{'new-exercise.newExercise_81' | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{'new-exercise.newExercise_82' | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{'new-exercise.newExercise_83' | translate}}</option>
+                <option value='Extremo Derecho'>{{'new-exercise.newExercise_84' | translate}}</option>
+                <option value='Extremo Izquierdo'>{{'new-exercise.newExercise_85' | translate}}</option>
+                <option value='Mediapunta'>{{'new-exercise.newExercise_86' | translate}}</option>
+                <option value='Delantero'>{{'new-exercise.newExercise_87' | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3" offset="3">
 
               <label class="modal-label">
-                Fecha de Nac.
+                {{'new-exercise.newExercise_95' | translate}}
               </label>
 
               <input type="date" class="modal-input" [(ngModel)]="player_bday">             
@@ -908,13 +908,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Sexo
+                {{'new-exercise.newExercise_96' | translate}}
               </label>
 
               <select [(ngModel)]="player_sex" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Masculino</option>
-                <option>Femenino</option>
+                <option value="Masculino">{{'new-exercise.newExercise_97' | translate}}</option>
+                <option value="Femenino">{{'new-exercise.newExercise_98' | translate}}</option>
               </select>
 
             </ion-col>
@@ -922,7 +922,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Peso
+                {{'new-exercise.newExercise_99' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_weight">
@@ -932,7 +932,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Altura
+                {{'new-exercise.newExercise_100' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_height">
@@ -942,13 +942,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Dominancia
+                {{'new-exercise.newExercise_101' | translate}}
               </label>
 
               <select [(ngModel)]="player_side" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Diestro</option>
-                <option>Zurdo</option>
+                <option value="Diestro">{{'new-exercise.newExercise_102' | translate}}</option>
+                <option value="Zurdo">{{'new-exercise.newExercise_103' | translate}}</option>
               </select>
               
             </ion-col>
@@ -964,7 +964,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Teléfono de Contacto
+                {{'new-exercise.newExercise_104' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_phone">
@@ -974,7 +974,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Email de Contacto
+                {{'new-exercise.newExercise_105' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_email">
@@ -983,7 +983,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Características o atributos
+                {{'new-exercise.newExercise_106' | translate}}
               </label>
 
               <textarea [(ngModel)]="player_notes" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="6"></textarea>
@@ -995,13 +995,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!player_name" (click)="savePlayer()">
-                    Agregar
+                    {{'new-exercise.newExercise_107' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 5">
-                    Cancelar
+                    {{'new-exercise.newExercise_108' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -1018,7 +1018,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Nombre del ejercicio
+                {{'new-exercise.newExercise_109' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="name">
@@ -1027,7 +1027,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Participantes
+                {{'new-exercise.newExercise_110' | translate}}
               </label>
 
               <input type="number" class="modal-input" [(ngModel)]="participants">
@@ -1036,7 +1036,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Dificultad
+                {{'new-exercise.newExercise_111' | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="difficult">
@@ -1052,7 +1052,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Objetivo Principal
+                {{'new-exercise.newExercise_112' | translate}}
               </label>
 
               <!-- <input type="number" placeholder="Min" class="modal-input" [(ngModel)]="min_age"> -->
@@ -1062,7 +1062,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Objetivo Secundario
+                {{'new-exercise.newExercise_113' | translate}}
               </label>
 
               <!-- <input type="number" placeholder="Max" class="modal-input" [(ngModel)]="max_age"> -->
@@ -1071,7 +1071,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Descripción
+                {{'new-exercise.newExercise_114' | translate}}
               </label>
 
               <textarea [(ngModel)]="description" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="3"></textarea>
@@ -1079,7 +1079,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Condicionantes
+                {{'new-exercise.newExercise_115' | translate}}
               </label>
 
               <textarea [(ngModel)]="conditions" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="3"></textarea>
@@ -1087,7 +1087,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Variantes
+                {{'new-exercise.newExercise_116' | translate}}
               </label>
 
               <textarea [(ngModel)]="variants" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="3"></textarea>
@@ -1095,7 +1095,7 @@
 
             <ion-col size="12" *ngIf="user.email == 'info@afecfa.es'">
               <label class="modal-label">
-                Ejercicio Global (Mostrar a todos los usuarios)
+                {{'new-exercise.newExercise_117' | translate}}
               </label>
               <span class=""><ion-toggle [checked]="show_all" [(ngModel)]="show_all" style="margin-top: 4px; padding-left: 0"></ion-toggle></span>
             </ion-col>
@@ -1106,13 +1106,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!name" (click)="upProject()">
-                    Agregar
+                    {{'new-exercise.newExercise_118' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="modal.dismiss()">
-                    Cancelar
+                    {{'new-exercise.newExercise_119' | translate}}
                   </button>
                 </ion-col>
               </ion-row>

@@ -1,0 +1,577 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>information</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content>
+
+  <div id="modal-header">
+    {{'scouting.scouting_1' | translate}}
+  </div>
+
+  <div id="outer-modal">
+    <div id="inner-modal">
+
+      <div id="inner-information">
+
+        <div *ngIf="step == 1">
+
+          <ion-row>
+            <ion-col size="12">
+              <div id="search-doc">
+                <ion-icon name="search"></ion-icon>
+                <input type="text" [(ngModel)]="query1">
+                <div style="clear: both;"></div>
+              </div>    
+            </ion-col>
+          </ion-row>
+          
+          <ion-row style="border-bottom: 1px solid #ccc;">
+            <ion-col size="2">{{'scouting.scouting_2' | translate}}</ion-col>
+            <ion-col size="1">{{'scouting.scouting_3' | translate}}</ion-col>
+            <ion-col size="1">{{'scouting.scouting_4' | translate}}</ion-col>
+            <ion-col size="2">{{'scouting.scouting_5' | translate}}</ion-col>
+            <!-- <ion-col size="1">Camiseta</ion-col> -->
+            <ion-col size="2">{{'scouting.scouting_6' | translate}}</ion-col>
+            <ion-col size="2">{{'scouting.scouting_7' | translate}}</ion-col>
+            <ion-col size="1"></ion-col>
+          </ion-row>
+
+          <div style="height: 421px; overflow: auto;">
+            
+
+            <ion-row *ngFor="let s of scoutings | search:query1; let i = index;" style="margin: 8px 0" [ngClass]="{'selectedTeam': sc?.id == s.id}">
+              <ion-col size="2" (click)="sc = s">
+                <span class="reconfigure">{{s.nombre}}</span>
+              </ion-col>
+              <ion-col size="1" (click)="sc = s">
+                <span class="reconfigure">{{s.fechaNacimiento}}</span>
+              </ion-col>
+              <ion-col size="1" (click)="sc = s">
+                <span class="reconfigure">{{s.altura}}</span>
+              </ion-col>
+              <ion-col size="2" (click)="sc = s">
+                <span class="reconfigure">{{s.posicion}}</span>
+              </ion-col>
+              <!-- <ion-col size="1" (click)="sc = s">
+                <span class="reconfigure">{{s.camiseta}}</span>
+              </ion-col> -->
+              <ion-col size="2" (click)="sc = s">
+                <span class="reconfigure">{{s.partido}}</span>
+              </ion-col>
+              <ion-col size="2" (click)="sc = s" style="text-align: left;">
+                <span class="reconfigure">{{s.fechaPartido}}</span>
+              </ion-col>
+              <ion-col size="2">
+                <span class="">
+                  <ion-button slot="icon-only" size="small" color="danger" (click)="delete(s.id)">
+                    <ion-icon name="trash"></ion-icon>
+                  </ion-button>
+
+                  <ion-button slot="icon-only" size="small" color="primary" (click)="edit(s)">
+                    <ion-icon name="pencil"></ion-icon>
+                  </ion-button>
+
+                  <ion-button slot="icon-only" size="small" color="secondary" (click)="generatePdf(s)">
+                    <ion-icon name="document"></ion-icon>
+                  </ion-button>
+
+                </span>
+              </ion-col>
+            </ion-row>
+
+            <ion-row *ngIf="scoutings?.length == 0">
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{'scouting.scouting_8' | translate}}</ion-col>
+            </ion-row>
+
+          </div>
+
+          <ion-row>
+            <ion-col size="6">
+              <ion-row>
+                <ion-col size="6">
+                  <button class="modal-button" (click)="goCreate()">
+                    {{'scouting.scouting_9' | translate}}
+                  </button>
+                </ion-col>
+                <ion-col size="6">
+                  
+                </ion-col>
+
+              </ion-row>
+            </ion-col>
+            <ion-col size="6">
+              <ion-row>
+                <ion-col size="6">
+                  
+                </ion-col>
+
+                <ion-col size="6">
+                  <button class="modal-button danger" (click)="modal.dismiss()">
+                    {{'scouting.scouting_10' | translate}}
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+          </ion-row>
+          
+          <!-- // -->
+
+        </div>
+
+        <div *ngIf="step == 2">
+
+          <ion-row>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_11' | translate}}
+              </label>
+
+              <input type="text" class="modal-input" [(ngModel)]="nombre">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_12' | translate}}
+              </label>
+
+              <input type="date" class="modal-input" [(ngModel)]="fechaNacimiento">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_13' | translate}}
+              </label>
+
+              <input type="number" class="modal-input" [(ngModel)]="altura">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_14' | translate}}
+              </label>
+
+              <input type="text" class="modal-input" [(ngModel)]="club">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_15' | translate}}
+              </label>
+
+              <span class="reconfigure">
+                <select class="positions form-control" [(ngModel)]="posicion">
+                  <option selected></option>
+                  <option value='Portero'>{{'scouting.scouting_16' | translate}}</option>
+                  <option value='Carrilero'>{{'scouting.scouting_17' | translate}}</option>
+                  <option value='Mediocampista'>{{'scouting.scouting_18' | translate}}</option>
+                  <option value='Lateral izquierdo'>{{'scouting.scouting_19' | translate}}</option>
+                  <option value='Defensa central'>{{'scouting.scouting_20' | translate}}</option>
+                  <option value='Lateral derecho'>{{'scouting.scouting_21' | translate}}</option>
+                  <option value='Centrocampista Ofensivo'>{{'scouting.scouting_22' | translate}}</option>
+                  <option value='Centrocampista Defensivo'>{{'scouting.scouting_23' | translate}}</option>
+                  <option value='Extremo Derecho'>{{'scouting.scouting_24' | translate}}</option>
+                  <option value='Extremo Izquierdo'>{{'scouting.scouting_25' | translate}}</option>
+                  <option value='Mediapunta'>{{'scouting.scouting_26' | translate}}</option>
+                  <option value='Delantero'>{{'scouting.scouting_27' | translate}}</option>
+                </select>
+              </span>
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_28' | translate}}
+              </label>
+
+              <input type="text" class="modal-input" [(ngModel)]="camiseta">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_29' | translate}}
+              </label>
+
+              <input type="text" class="modal-input" [(ngModel)]="partido">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+               {{'scouting.scouting_30' | translate}}
+              </label>
+
+              <input type="date" class="modal-input" [(ngModel)]="fechaPartido">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+               {{'scouting.scouting_31' | translate}}
+              </label>
+
+              <input type="text" class="modal-input" [(ngModel)]="tipoPartido">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_32' | translate}}
+              </label>
+
+              <input type="text" class="modal-input" [(ngModel)]="horario">
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_33' | translate}}
+              </label>
+
+              <input type="number" class="modal-input" [(ngModel)]="minutosJugados">
+            </ion-col>
+
+            <ion-col size="12">
+              <label class="modal-label">
+               {{'scouting.scouting_34' | translate}}
+              </label>
+
+              <textarea [(ngModel)]="tecnicoTactico" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
+            </ion-col>
+
+            <ion-col size="12">
+              <label class="modal-label">
+                {{'scouting.scouting_35' | translate}}
+              </label>
+
+              <textarea [(ngModel)]="fisicoMental" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
+            </ion-col>
+
+            <ion-col size="6">
+
+              <label class="modal-label">
+                {{'scouting.scouting_36' | translate}}
+              </label> <br>
+
+              <select class="form-control" [(ngModel)]="puntuaciones">
+                  <option selected></option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+            </ion-col>
+
+            <ion-col size="12">  
+              <br>
+              <table>
+                <tr>
+                    <th>{{'scouting.scouting_37' | translate}}</th>
+                    <th>{{'scouting.scouting_38' | translate}}</th>
+                    <th>{{'scouting.scouting_39' | translate}}</th>
+                    <th>{{'scouting.scouting_40' | translate}}</th>
+                    <th>{{'scouting.scouting_41' | translate}}</th>
+                    <th>{{'scouting.scouting_42' | translate}}</th>
+                    <th>{{'scouting.scouting_43' | translate}}</th>
+                    <th>{{'scouting.scouting_44' | translate}}</th>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_58' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.pases">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_59' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.concienciaPosicional">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_60' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.contexturaFisica">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_61' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.concentracion">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_62' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.duelos">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_63' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.creatividad">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_64' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.velocidad">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_65' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.voluntad">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_66' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.regate">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_67' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.movimientoSinBalon">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_68' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.rapidez">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_69' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.determinacion">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_70' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.controlDelBalon">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_71' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.concienciaOfensiva">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_72' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.fuerza">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_73' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.tomaDeDecisiones">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_74' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.centros">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_75' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.concienciaDefensiva">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_76' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.resistencia">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_77' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.comunicacion">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_78' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.disparos">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_79' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.apoyoACompanero">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_80' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.juegoAereo">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_81' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.valentia">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_82' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.timing">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_83' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.juegoBajoPresion">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_84' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.reaccion">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_85' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.fairPlay">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_86' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.intercepcion">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_87' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.usoDelEspacio">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_88' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.coordinacion">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_89' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.liderazgo">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{{'scouting.scouting_90' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.marcaje">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_91' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.consistencia">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_92' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.balance">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                    <td>{{'scouting.scouting_93' | translate}}</td>
+                    <td><select class="input-alt" [(ngModel)]="data.confianza">
+                      <option *ngFor="let i of puntos" [value]="i">{{i}}</option></select>
+                    </td>
+                </tr>
+              </table>
+              <br>
+            </ion-col>
+
+            <ion-col size="12" style="text-align: center;">
+
+              <div style=" border:1px transparent; width: 493px; height: 361px; position: absolute; left: 0; right:0; margin: auto; top: 45px;">
+                
+                <div class="dot-container">
+                    <span class="dot {{scouting[0] == 1 ? 'marked' : (scouting[0] == 2 ? 'marked-alt' : '')}} lonely" (click)="resetScouting(0);"></span>
+                </div>
+
+                <div class="dot-container">
+                    <span class="dot {{scouting[1] == 1 ? 'marked' : (scouting[1] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(1);"></span>
+                    <span class="dot {{scouting[2] == 1 ? 'marked' : (scouting[2] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(2);"></span>
+                    <span class="dot {{scouting[3] == 1 ? 'marked' : (scouting[3] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(3);"></span>
+                    <span class="dot {{scouting[4] == 1 ? 'marked' : (scouting[4] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(4);"></span>
+                    <span class="dot {{scouting[5] == 1 ? 'marked' : (scouting[5] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(5);"></span>
+                    <span class="dot {{scouting[6] == 1 ? 'marked' : (scouting[6] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(6);"></span>
+                    <span class="dot {{scouting[7] == 1 ? 'marked' : (scouting[7] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(7);"></span>
+                </div>
+
+                <div class="dot-container">
+                    <span class="dot {{scouting[8] == 1 ? 'marked' : (scouting[8] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(8);"></span>
+                    <span class="dot {{scouting[9] == 1 ? 'marked' : (scouting[9] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(9);"></span>
+                    <span class="dot {{scouting[10] == 1 ? 'marked' : (scouting[10] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(10);"></span>
+                    <span class="dot {{scouting[11] == 1 ? 'marked' : (scouting[11] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(11);"></span>
+                    <span class="dot {{scouting[12] == 1 ? 'marked' : (scouting[12] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(12);"></span>
+                    <span class="dot {{scouting[13] == 1 ? 'marked' : (scouting[13] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(13);"></span>
+                    <span class="dot {{scouting[14] == 1 ? 'marked' : (scouting[14] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(14);"></span>
+                </div>
+
+                <div class="dot-container">
+                    <span class="dot {{scouting[15] == 1 ? 'marked' : (scouting[15] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(15);"></span>
+                    <span class="dot {{scouting[16] == 1 ? 'marked' : (scouting[16] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(16);"></span>
+                    <span class="dot {{scouting[17] == 1 ? 'marked' : (scouting[17] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(17);"></span>
+                    <span class="dot {{scouting[18] == 1 ? 'marked' : (scouting[18] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(18);"></span>
+                    <span class="dot {{scouting[19] == 1 ? 'marked' : (scouting[19] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(19);"></span>
+                    <span class="dot {{scouting[20] == 1 ? 'marked' : (scouting[20] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(20);"></span>
+                    <span class="dot {{scouting[21] == 1 ? 'marked' : (scouting[21] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(21);"></span>
+                </div>
+
+                <div class="dot-container">
+                    <span class="dot {{scouting[22] == 1 ? 'marked' : (scouting[22] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(22);"></span>
+                    <span class="dot {{scouting[23] == 1 ? 'marked' : (scouting[23] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(23);"></span>
+                    <span class="dot {{scouting[24] == 1 ? 'marked' : (scouting[24] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(24);"></span>
+                    <span class="dot {{scouting[25] == 1 ? 'marked' : (scouting[25] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(25);"></span>
+                    <span class="dot {{scouting[26] == 1 ? 'marked' : (scouting[26] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(26);"></span>
+                    <span class="dot {{scouting[27] == 1 ? 'marked' : (scouting[27] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(27);"></span>
+                    <span class="dot {{scouting[28] == 1 ? 'marked' : (scouting[28] == 2 ? 'marked-alt' : '')}}" (click)="resetScouting(28);"></span>
+                </div>
+
+            </div>
+              
+              <img src="./assets/terreno3.svg" alt="">
+
+            </ion-col>
+
+            <ion-col size="12">
+              <h3>{{'scouting.comparison' | translate}}</h3>
+            </ion-col>
+
+            <ion-col size="6">
+              <label class="modal-label">
+               {{'scouting.offensive' | translate}}
+              </label>
+
+              <textarea [(ngModel)]="data.ofensivo" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
+            </ion-col>
+
+            <ion-col size="6">
+              <label class="modal-label">
+                {{'scouting.defensive' | translate}}
+              </label>
+
+              <textarea [(ngModel)]="data.defensivo" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
+            </ion-col>
+
+            <ion-col size="6">
+              <label class="modal-label">
+               {{'scouting.challenge' | translate}}
+              </label>
+
+              <textarea [(ngModel)]="data.duelos_1" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
+            </ion-col>
+
+            <ion-col size="6">
+              <label class="modal-label">
+                {{'scouting.pass' | translate}}
+              </label>
+
+              <textarea [(ngModel)]="data.pases_1" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
+            </ion-col>
+
+          </ion-row>
+
+          <br><br>
+
+          <ion-row>
+            <ion-col size="6" offset="6">
+              <ion-row>
+                <ion-col size="6">
+                  <button class="modal-button" *ngIf="!id" [disabled]="!nombre" (click)="upScouting()">
+                    <span style="color: #333" *ngIf="!id">{{'scouting.scouting_45' | translate}}</span>
+                  </button>
+
+                  <button class="modal-button" *ngIf="id" [disabled]="!nombre" (click)="updateScouting()">
+                    <span style="color: #333" *ngIf="id">{{'scouting.scouting_46' | translate}}</span>
+                  </button>
+                </ion-col>
+
+                <ion-col size="6">
+                  <button class="modal-button danger" (click)="step = 1">
+                    {{'scouting.scouting_57' | translate}}
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+
+          </ion-row>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</ion-content>

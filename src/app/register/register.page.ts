@@ -3,6 +3,8 @@ import { NavController, LoadingController, AlertController, ToastController } fr
 
 import { ApiService } from '../services/api.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -19,6 +21,7 @@ export class RegisterPage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
+    private translate: TranslateService,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toast: ToastController, public api: ApiService) { }
 
   ngOnInit() {
@@ -27,7 +30,7 @@ export class RegisterPage implements OnInit {
   register():any
   {
     if (!this.terms) {
-      this.alertCtrl.create({message:"Debe aceptar los términos y condiciones!"}).then(a=>{a.present();})
+      this.alertCtrl.create({message:this.translate.instant("register.accept")}).then(a=>{a.present();})
       return false;
     }
     this.loadingCtrl.create().then(a=>{
@@ -53,7 +56,7 @@ export class RegisterPage implements OnInit {
         //   );
         // }
         this.navCtrl.navigateRoot('login');
-        this.alertCtrl.create({message:"Usuario registrado correctamente, inicie sesión"}).then(a=>{a.present();})
+        this.alertCtrl.create({message:this.translate.instant('register.success')}).then(a=>{a.present();})
 
       },err=>{
         a.dismiss();

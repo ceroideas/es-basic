@@ -3,6 +3,8 @@ import { ModalController, AlertController, LoadingController } from '@ionic/angu
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 declare var $: any;
 
 @Component({
@@ -43,7 +45,7 @@ export class PrEventsPage implements OnInit {
 
   teams = [this.proyect.team1,this.proyect.team2];
 
-  constructor(public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
 
   ngOnInit() {
 
@@ -127,7 +129,7 @@ export class PrEventsPage implements OnInit {
       this.api.upEvent(data).subscribe(data=>{
         l.dismiss();
 
-        this.alertCtrl.create({message:"Evento guardado"}).then(a=>a.present());
+        this.alertCtrl.create({message:this.translate.instant("prEvents.prEvents_55")}).then(a=>a.present());
 
         this.event = "Tiro";
         this.event_type = null;
@@ -156,16 +158,16 @@ export class PrEventsPage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("prEvents.prEvents_56"), buttons: [
     {
-      text:"Si",
+      text:this.translate.instant("prEvents.prEvents_57"),
       handler:()=>{
         this.api.deleteEvent(id).subscribe(data=>{
           this.getEvents();
         });
       }
     },{
-      text:"No"
+      text:this.translate.instant("prEvents.prEvents_58")
     }
     ]}).then(a=>a.present());
   }

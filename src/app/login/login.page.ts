@@ -4,6 +4,8 @@ import { NavController, LoadingController, AlertController, ToastController } fr
 
 import { ApiService } from '../services/api.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,6 +18,7 @@ export class LoginPage implements OnInit {
 
   constructor(
     public navCtrl: NavController, public plt: Platform,
+    private translate: TranslateService,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController, public toast: ToastController, public api: ApiService) { }
 
   ngOnInit() {

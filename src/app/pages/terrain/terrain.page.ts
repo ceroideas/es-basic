@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController, LoadingController } from '@ionic/angular';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-terrain',
   templateUrl: './terrain.page.html',
@@ -11,7 +13,7 @@ export class TerrainPage implements OnInit {
 
   terrain:any = localStorage.getItem('terrain') || 1;
 
-  constructor(public events: EventsService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController) { }
+  constructor(public translate: TranslateService, public events: EventsService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController) { }
 
   ngOnInit() {
   }

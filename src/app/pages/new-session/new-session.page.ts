@@ -3,6 +3,8 @@ import { ModalController, AlertController, LoadingController } from '@ionic/angu
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 declare var $: any;
 
 @Component({
@@ -37,7 +39,7 @@ export class NewSessionPage implements OnInit {
   ids:any = [];
   others:any = [];
 
-  constructor(public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
 
   ngOnInit() {
     this.getSessions();
@@ -134,20 +136,24 @@ export class NewSessionPage implements OnInit {
   open():any
   {
     if (!this.session.pr) {
-      return this.alertCtrl.create({message:"Ésta sesión no posée ningún ejercicio!", buttons: [{text:"Ok"}]}).then(a=>a.present());
+      return this.alertCtrl.create({message:this.translate.instant("new-session.newSession_35"), buttons: [{text:"Ok"}]}).then(a=>a.present());
     }
-
-    this.modal.dismiss();
 
     this.loadingCtrl.create().then(l=>{
       l.present();
 
       this.api.loadSessionScenes(this.session.id).subscribe((data:any)=>{
 
-        l.dismiss();
-        localStorage.setItem('session',JSON.stringify(data));
-        localStorage.setItem('actualProject',JSON.stringify(data.pr[0].project));
-        this.events.publish('loadProject');
+        if (undefined === data.pr[0]) {
+          l.dismiss();
+          this.alertCtrl.create({message: "El evento seleccionado no posee ejercicios"}).then(a=>a.present());
+        }else{
+          this.modal.dismiss();
+          l.dismiss();
+          localStorage.setItem('session',JSON.stringify(data));
+          localStorage.setItem('actualProject',JSON.stringify(data.pr[0].project));
+          this.events.publish('loadProject');
+        }
       })
     })
   }
@@ -156,11 +162,11 @@ export class NewSessionPage implements OnInit {
   upProject():any
   {
     if (!this.name) {
-      this.alertCtrl.create({message:"Por favor, escriba el nombre del ejercicio!"}).then(a=>a.present());
+      this.alertCtrl.create({message:this.translate.instant("new-session.newSession_36")}).then(a=>a.present());
       return false;
     }
     if (!this.difficult) {
-      this.alertCtrl.create({message:"Por favor, Seleccione la dificultad del ejercicio!"}).then(a=>a.present());
+      this.alertCtrl.create({message:this.translate.instant("new-session.newSession_37")}).then(a=>a.present());
       return false;
     }
     
@@ -187,7 +193,7 @@ export class NewSessionPage implements OnInit {
       this.api.upSession(data).subscribe(data=>{
         l.dismiss();
         this.getSessions();
-        this.alertCtrl.create({message:"Sesion de entrenamiento guardada"}).then(a=>a.present());
+        this.alertCtrl.create({message:this.translate.instant("new-session.newSession_38")}).then(a=>a.present());
         // localStorage.setItem('actualProject',JSON.stringify(data));
         // this.events.publish('loadProject');
         // this.modal.dismiss();
@@ -207,9 +213,9 @@ export class NewSessionPage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("new-session.newSession_39"), buttons: [
     {
-      text:"Si",
+      text:this.translate.instant("new-session.newSession_40"),
       handler:()=>{
         this.api.deleteSession(id).subscribe(data=>{
           this.session = null;
@@ -217,7 +223,7 @@ export class NewSessionPage implements OnInit {
         });
       }
     },{
-      text:"No"
+      text:this.translate.instant("new-session.newSession_41")
     }
     ]}).then(a=>a.present());
   }

@@ -10,12 +10,15 @@ import { NewProjectPage } from './new-project.page';
 
 import { PipesModule } from '../../pipes/pipes.module';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     PipesModule,
+    TranslateModule.forChild(),
     NewProjectPageRoutingModule
   ],
   declarations: [NewProjectPage]

@@ -7,6 +7,8 @@ import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
+import { TranslateService } from '@ngx-translate/core';
+
 declare var moment:any;
 
 @Component({
@@ -27,7 +29,7 @@ export class CalendarPage implements OnInit {
 
   data:any;
 
-  constructor(public api: ApiService, public alert: AlertController, public modal: ModalController,
+  constructor(public api: ApiService, public alert: AlertController, public modal: ModalController, public translate: TranslateService,
     public loadingCtrl: LoadingController, public events: EventsService) {
 
     this.api.getDates(this.user.id).subscribe((data:any)=>{
@@ -37,19 +39,19 @@ export class CalendarPage implements OnInit {
 
       for(let i of data[0]) {
         if (i.date && i.date != "") {
-          dates.push({title: 'Sesion de entrenamiento: '+i.name, date: i.date, instanceId: i.id, type: 'training'});
+          dates.push({title: this.translate.instant('calendar.trainning_session')+i.name, date: i.date, instanceId: i.id, type: 'training'});
         }
       }
 
       for(let i of data[1]) {
         if (i.date && i.date != "") {
-          dates.push({title: 'Proyecto: '+i.name, date: i.date, instanceId: i.id, type: 'project'});
+          dates.push({title: this.translate.instant('calendar.project')+i.name, date: i.date, instanceId: i.id, type: 'project'});
         }
       }
 
       for(let i of data[2]) {
         if (i.date && i.date != "") {
-          dates.push({title: 'Reporte: '+i.name, date: i.date, instanceId: i.id, type: 'report'});
+          dates.push({title: this.translate.instant('calendar.report')+i.name, date: i.date, instanceId: i.id, type: 'report'});
         }
       }
 
@@ -68,22 +70,31 @@ export class CalendarPage implements OnInit {
   handleEventClick(arg:any) {
     console.log(arg.event.extendedProps,arg.event.title,arg.event.start);
 
-    let buttons:any = [{text:"Aceptar"}];
+    let buttons:any = [{text:this.translate.instant('calendar.accept')}];
 
     if (arg.event.extendedProps.type == 'training') {
-      buttons = [{text:"Cerrar"},{text:"Abrir Sesión", handler:()=>{
-
-        this.modal.dismiss();
+      buttons = [{text:this.translate.instant('calendar.close')},{text:this.translate.instant('calendar.open_session'), handler:()=>{
 
         this.loadingCtrl.create().then(l=>{
           l.present();
 
           this.api.loadSessionScenes(arg.event.extendedProps.instanceId).subscribe((data:any)=>{
 
-            l.dismiss();
-            localStorage.setItem('session',JSON.stringify(data));
-            localStorage.setItem('actualProject',JSON.stringify(data.pr[0].project));
-            this.events.publish('loadProject');
+            if (undefined === data.pr[0]) {
+
+              l.dismiss();
+
+              this.alert.create({message: "El evento seleccionado no posee ejercicios"}).then(a=>a.present());
+              
+            }else{
+
+              this.modal.dismiss();
+
+              l.dismiss();
+              localStorage.setItem('session',JSON.stringify(data));
+              localStorage.setItem('actualProject',JSON.stringify(data.pr[0].project));
+              this.events.publish('loadProject');
+            }
           })
         })
 
@@ -93,7 +104,7 @@ export class CalendarPage implements OnInit {
 
     if (arg.event.extendedProps.type == 'project') {
 
-      buttons = [{text:"Cerrar"},{text:"Abrir Partido", handler:()=>{
+      buttons = [{text:this.translate.instant('calendar.close')},{text:this.translate.instant('calendar.open_game'), handler:()=>{
 
         this.modal.dismiss();
 
@@ -120,7 +131,7 @@ export class CalendarPage implements OnInit {
 
     }
 
-    this.alert.create({message:arg.event.title+', el día '+moment(arg.event.start).format('DD-MM-Y [a las] HH:mm'), buttons: buttons}).then(a=>a.present());
+    this.alert.create({message:arg.event.title+this.translate.instant('calendar.in_day')+moment(arg.event.start).format('DD-MM-Y ['+this.translate.instant('calendar.at_the')+'] HH:mm'), buttons: buttons}).then(a=>a.present());
   }
 
 }

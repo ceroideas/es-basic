@@ -8,11 +8,14 @@ import { BuyPageRoutingModule } from './buy-routing.module';
 
 import { BuyPage } from './buy.page';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     BuyPageRoutingModule
   ],
   declarations: [BuyPage]

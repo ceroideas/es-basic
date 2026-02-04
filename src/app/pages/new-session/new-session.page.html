@@ -7,7 +7,7 @@
 <ion-content>
 
   <div id="modal-header">
-    Sesiones de entrenamiento
+    {{'new-session.newSession_1' | translate}}
   </div>
 
   <div id="outer-modal">
@@ -28,12 +28,12 @@
           </ion-row>
           
           <ion-row style="border-bottom: 1px solid #ccc;">
-            <ion-col size="2">Nombre</ion-col>
-            <ion-col size="1">Duración</ion-col>
-            <ion-col size="1">Fecha</ion-col>
-            <ion-col size="3">Objetivos</ion-col>
-            <ion-col size="2">Descripción</ion-col>
-            <ion-col size="2">Complejidad</ion-col>
+            <ion-col size="2">{{'new-session.newSession_2' | translate}}</ion-col>
+            <ion-col size="1">{{'new-session.newSession_3' | translate}}</ion-col>
+            <ion-col size="1">{{'new-session.newSession_4' | translate}}</ion-col>
+            <ion-col size="3">{{'new-session.newSession_5' | translate}}</ion-col>
+            <ion-col size="2">{{'new-session.newSession_6' | translate}}</ion-col>
+            <ion-col size="2">{{'new-session.newSession_7' | translate}}</ion-col>
             <ion-col size="1"></ion-col>
           </ion-row>
 
@@ -79,7 +79,7 @@
             </ion-row>
 
             <ion-row *ngIf="sessions?.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{'new-session.newSession_8' | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -89,12 +89,12 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="goCreate()">
-                    Nueva Sesión
+                    {{'new-session.newSession_9' | translate}}
                   </button>
                 </ion-col>
                 <ion-col size="6">
                   <button *ngIf="session" class="modal-button" (click)="open()">
-                    Abrir
+                    {{'new-session.newSession_10' | translate}}
                   </button>
                 </ion-col>
 
@@ -104,13 +104,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button *ngIf="session" class="modal-button" (click)="step = 3; initSort()">
-                    Ejercicios
+                    {{'new-session.newSession_11' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="modal.dismiss()">
-                    Cerrar
+                    {{'new-session.newSession_12' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -129,7 +129,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Nombre de la sesión
+                {{'new-session.newSession_13' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="name">
@@ -138,7 +138,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Duración
+                {{'new-session.newSession_14' | translate}}
               </label>
 
               <input type="number" class="modal-input" [(ngModel)]="duration">
@@ -147,7 +147,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Complejidad
+                {{'new-session.newSession_15' | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="difficult">
@@ -163,7 +163,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Fecha
+                {{'new-session.newSession_16' | translate}}
               </label>
 
               <input type="date" class="modal-input" [(ngModel)]="date">
@@ -172,7 +172,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Objetivos Principales
+                {{'new-session.newSession_17' | translate}}
               </label>
 
               <textarea [(ngModel)]="objectives" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
@@ -180,7 +180,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Objetivos Secundarios
+                {{'new-session.newSession_18' | translate}}
               </label>
 
               <textarea [(ngModel)]="objectives_sec" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="2"></textarea>
@@ -188,7 +188,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Descripción
+                {{'new-session.newSession_19' | translate}}
               </label>
 
               <textarea [(ngModel)]="description" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="3"></textarea>
@@ -197,7 +197,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Otras consideraciones
+                {{'new-session.newSession_20' | translate}}
               </label>
 
               <textarea [(ngModel)]="notes" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="3"></textarea>
@@ -208,14 +208,14 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!name" (click)="upProject()">
-                    <span style="color: #333" *ngIf="!id">Agregar</span>
-                    <span style="color: #333" *ngIf="id">Actualizar</span>
+                    <span style="color: #333" *ngIf="!id">{{'new-session.newSession_21' | translate}}</span>
+                    <span style="color: #333" *ngIf="id">{{'new-session.newSession_22' | translate}}</span>
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 1">
-                    Cancelar
+                    {{'new-session.newSession_23' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -235,7 +235,7 @@
 
                 <ion-col size="12">
                   <div class="teamName" style="margin: 0;">
-                    Catálogo de ejercicios
+                    {{'new-session.newSession_24' | translate}}
                   </div>
                 </ion-col>
                 <ion-col size="12">
@@ -268,13 +268,13 @@
                           <ion-icon [name]="'radio-button-'+(o.difficult >= 5 ? 'on' : 'off')+'-outline'"></ion-icon> <br>
                           <!-- Desde: {{o.min_age}} Hasta: {{o.max_age}} años <br> -->
 
-                          <b>Objetivos Principales</b>
+                          <b>{{'new-session.newSession_25' | translate}}</b>
                           <div>{{o.objetives}}&nbsp;</div>
 
-                          <b>Objetivos Secundarios</b>
+                          <b>{{'new-session.newSession_26' | translate}}</b>
                           <div>{{o.objetives_sec}}&nbsp;</div>
 
-                          Participantes: {{o.participants}} <br>
+                          {{'new-session.newSession_27' | translate}}: {{o.participants}} <br>
 
                         </div>
                       </div>
@@ -294,7 +294,7 @@
 
                 <ion-col size="12">
                   <div class="teamName" style="margin: 0;">
-                    En la sesión
+                    {{'new-session.newSession_28' | translate}}
                   </div>
                 </ion-col>
 
@@ -318,13 +318,13 @@
                             <ion-icon [name]="'radio-button-'+(a.project.difficult >= 4 ? 'on' : 'off')+'-outline'"></ion-icon>
                             <ion-icon [name]="'radio-button-'+(a.project.difficult >= 5 ? 'on' : 'off')+'-outline'"></ion-icon> <br>
                             
-                            <b>Objetivos Principales</b>
+                            <b>{{'new-session.newSession_29' | translate}}</b>
                             <div>{{a.project.objetives}}&nbsp;</div>
 
-                            <b>Objetivos Secundarios</b>
+                            <b>{{'new-session.newSession_30' | translate}}</b>
                             <div>{{a.project.objetives_sec}}&nbsp;</div>
 
-                            Participantes: {{a.project.participants}} <br>
+                            {{'new-session.newSession_31' | translate}}: {{a.project.participants}} <br>
                           </div>
                         </div>
                       </li>
@@ -344,18 +344,18 @@
               <ion-row>
                 <ion-col size="3">
                   <button class="modal-button" (click)="pdfSession()">
-                    PDF
+                    {{'new-session.newSession_32' | translate}}
                   </button>
                 </ion-col>
                 <ion-col size="3" offset="3">
                   <button class="modal-button" (click)="step = 1; saveExercises()">
-                    Listo
+                    {{'new-session.newSession_33' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="3">
                   <button class="modal-button danger" (click)="step = 1">
-                    Cancelar
+                    {{'new-session.newSession_34' | translate}}
                   </button>
                 </ion-col>
               </ion-row>

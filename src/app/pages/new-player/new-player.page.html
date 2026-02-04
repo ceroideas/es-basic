@@ -7,19 +7,19 @@
 <ion-content>
 
   <div id="modal-header" *ngIf="step == 1">
-    Configuración de los equipos
+    {{'new-player.newPlayer_1' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 2">
-    Editar Equipo
+    {{'new-player.newPlayer_2' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 3">
-    Plantilla
+    {{'new-player.newPlayer_3' | translate}}
   </div>
 
   <div id="modal-header" *ngIf="step == 4">
-    Datos del/la Futbolista
+    {{'new-player.newPlayer_4' | translate}}
   </div>
 
   <div id="outer-modal">
@@ -48,7 +48,7 @@
                   <br>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Colores</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-player.newPlayer_5' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -61,7 +61,7 @@
 
                         </div>
 
-                        Color número
+                        {{'new-player.newPlayer_6' | translate}}
                       </div>
 
                       <div class="colors">
@@ -74,7 +74,7 @@
 
                         </div>
 
-                        Color principal
+                        {{'new-player.newPlayer_7' | translate}}
                       </div>
 
                       <div class="colors">
@@ -87,13 +87,13 @@
 
                         </div>
 
-                        Color fondo
+                        {{'new-player.newPlayer_8' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Estilos</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-player.newPlayer_9' | translate}}</span></ion-col>
                     <ion-col size="8">
 
                       <div class="colors">
@@ -103,7 +103,7 @@
                           10
                         </div>
 
-                        Estilo 1
+                        {{'new-player.newPlayer_10' | translate}}
                       </div>
 
                       <div class="colors">
@@ -113,7 +113,7 @@
                           10
                         </div>
 
-                        Estilo 2
+                        {{'new-player.newPlayer_11' | translate}}
                       </div>
 
                       <div class="colors">
@@ -123,13 +123,13 @@
                           10
                         </div>
 
-                        Estilo 3
+                        {{'new-player.newPlayer_12' | translate}}
                       </div>
                     </ion-col>
                   </ion-row>
 
                   <ion-row>
-                    <ion-col size="4"><span class="to-mid">Solo color sólido</span></ion-col>
+                    <ion-col size="4"><span class="to-mid">{{'new-player.newPlayer_13' | translate}}</span></ion-col>
                     <ion-col size="8">
                       <div class="colors">
                         <div class="color number"
@@ -150,7 +150,7 @@
 
                 <ion-col size="6">
                   <button class="modal-button" *ngIf="team" (click)="step = 3; preRosters(); prePlayers();">
-                    Plantilla
+                    {{'new-player.newPlayer_14' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -171,13 +171,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="upProject()">
-                    Listo
+                    {{'new-player.newPlayer_15' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="modal.dismiss()">
-                    Cancelar
+                    {{'new-player.newPlayer_16' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -200,7 +200,7 @@
             <ion-col size="9">
 
               <label class="modal-label">
-                Nombre del equipo
+                {{'new-player.newPlayer_17' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="team_name">
@@ -226,7 +226,7 @@
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 1">
-                    Cancelar
+                    {{'new-player.newPlayer_18' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -251,13 +251,13 @@
           </ion-row>
           
           <ion-row style="border-bottom: 1px solid #ccc; text-align: center;">
-            <ion-col size="2">Nombre</ion-col>
-            <ion-col size="2">Email</ion-col>
-            <ion-col size="1">Teléfono</ion-col>
-            <ion-col size="1">Número</ion-col>
-            <ion-col size="2">Posición Principal</ion-col>
-            <ion-col size="2">Posición Secundaria</ion-col>
-            <ion-col size="1">Dominancia</ion-col>
+            <ion-col size="2">{{'new-player.newPlayer_19' | translate}}</ion-col>
+            <ion-col size="2">{{'new-player.newPlayer_20' | translate}}</ion-col>
+            <ion-col size="1">{{'new-player.newPlayer_21' | translate}}</ion-col>
+            <ion-col size="1">{{'new-player.newPlayer_22' | translate}}</ion-col>
+            <ion-col size="2">{{'new-player.newPlayer_23' | translate}}</ion-col>
+            <ion-col size="2">{{'new-player.newPlayer_24' | translate}}</ion-col>
+            <ion-col size="1">{{'new-player.newPlayer_25' | translate}}</ion-col>
             <!-- <ion-col size="2">Peto</ion-col> -->
             <ion-col size="1"></ion-col>
             
@@ -291,18 +291,18 @@
                 <span class="reconfigure">
                   <select [attr.data-id]="r.id" class="positions form-control" (change)="updateRoster(r,$event,'position')">
                     <option selected></option>
-                    <option [selected]="r.position == 'Portero'">Portero</option>
-                    <option [selected]="r.position == 'Carrilero'">Carrilero</option>
-                    <option [selected]="r.position == 'Mediocampista'">Mediocampista</option>
-                    <option [selected]="r.position == 'Lateral izquierdo'">Lateral izquierdo</option>
-                    <option [selected]="r.position == 'Defensa central'">Defensa central</option>
-                    <option [selected]="r.position == 'Lateral derecho'">Lateral derecho</option>
-                    <option [selected]="r.position == 'Centrocampista Ofensivo'">Centrocampista Ofensivo</option>
-                    <option [selected]="r.position == 'Centrocampista Defensivo'">Centrocampista Defensivo</option>
-                    <option [selected]="r.position == 'Extremo Derecho'">Extremo Derecho</option>
-                    <option [selected]="r.position == 'Extremo Izquierdo'">Extremo Izquierdo</option>
-                    <option [selected]="r.position == 'Mediapunta'">Mediapunta</option>
-                    <option [selected]="r.position == 'Delantero'">Delantero</option>
+                    <option value='Portero' [selected]="r.position == 'Portero'">{{'new-player.newPlayer_26' | translate}}</option>
+                    <option value='Carrilero' [selected]="r.position == 'Carrilero'">{{'new-player.newPlayer_27' | translate}}</option>
+                    <option value='Mediocampista' [selected]="r.position == 'Mediocampista'">{{'new-player.newPlayer_28' | translate}}</option>
+                    <option value='Lateral izquierdo' [selected]="r.position == 'Lateral izquierdo'">{{'new-player.newPlayer_29' | translate}}</option>
+                    <option value='Defensa central' [selected]="r.position == 'Defensa central'">{{'new-player.newPlayer_30' | translate}}</option>
+                    <option value='Lateral derecho' [selected]="r.position == 'Lateral derecho'">{{'new-player.newPlayer_31' | translate}}</option>
+                    <option value='Centrocampista Ofensivo' [selected]="r.position == 'Centrocampista Ofensivo'">{{'new-player.newPlayer_32' | translate}}</option>
+                    <option value='Centrocampista Defensivo' [selected]="r.position == 'Centrocampista Defensivo'">{{'new-player.newPlayer_33' | translate}}</option>
+                    <option value='Extremo Derecho' [selected]="r.position == 'Extremo Derecho'">{{'new-player.newPlayer_34' | translate}}</option>
+                    <option value='Extremo Izquierdo' [selected]="r.position == 'Extremo Izquierdo'">{{'new-player.newPlayer_35' | translate}}</option>
+                    <option value='Mediapunta' [selected]="r.position == 'Mediapunta'">{{'new-player.newPlayer_36' | translate}}</option>
+                    <option value='Delantero' [selected]="r.position == 'Delantero'">{{'new-player.newPlayer_37' | translate}}</option>
                   </select>
                 </span>
               </ion-col>
@@ -311,18 +311,18 @@
                 <span class="reconfigure">
                   <select [attr.data-id]="r.id" class="positions_2 form-control" (change)="updateRoster(r,$event,'position_2')">
                     <option selected></option>
-                    <option [selected]="r.position_2 == 'Portero'">Portero</option>
-                    <option [selected]="r.position_2 == 'Carrilero'">Carrilero</option>
-                    <option [selected]="r.position_2 == 'Mediocampista'">Mediocampista</option>
-                    <option [selected]="r.position_2 == 'Lateral izquierdo'">Lateral izquierdo</option>
-                    <option [selected]="r.position_2 == 'Defensa central'">Defensa central</option>
-                    <option [selected]="r.position_2 == 'Lateral derecho'">Lateral derecho</option>
-                    <option [selected]="r.position_2 == 'Centrocampista Ofensivo'">Centrocampista Ofensivo</option>
-                    <option [selected]="r.position_2 == 'Centrocampista Defensivo'">Centrocampista Defensivo</option>
-                    <option [selected]="r.position_2 == 'Extremo Derecho'">Extremo Derecho</option>
-                    <option [selected]="r.position_2 == 'Extremo Izquierdo'">Extremo Izquierdo</option>
-                    <option [selected]="r.position_2 == 'Mediapunta'">Mediapunta</option>
-                    <option [selected]="r.position_2 == 'Delantero'">Delantero</option>
+                    <option value='Portero' [selected]="r.position == 'Portero'">{{'new-player.newPlayer_26' | translate}}</option>
+                    <option value='Carrilero' [selected]="r.position == 'Carrilero'">{{'new-player.newPlayer_27' | translate}}</option>
+                    <option value='Mediocampista' [selected]="r.position == 'Mediocampista'">{{'new-player.newPlayer_28' | translate}}</option>
+                    <option value='Lateral izquierdo' [selected]="r.position == 'Lateral izquierdo'">{{'new-player.newPlayer_29' | translate}}</option>
+                    <option value='Defensa central' [selected]="r.position == 'Defensa central'">{{'new-player.newPlayer_30' | translate}}</option>
+                    <option value='Lateral derecho' [selected]="r.position == 'Lateral derecho'">{{'new-player.newPlayer_31' | translate}}</option>
+                    <option value='Centrocampista Ofensivo' [selected]="r.position == 'Centrocampista Ofensivo'">{{'new-player.newPlayer_32' | translate}}</option>
+                    <option value='Centrocampista Defensivo' [selected]="r.position == 'Centrocampista Defensivo'">{{'new-player.newPlayer_33' | translate}}</option>
+                    <option value='Extremo Derecho' [selected]="r.position == 'Extremo Derecho'">{{'new-player.newPlayer_34' | translate}}</option>
+                    <option value='Extremo Izquierdo' [selected]="r.position == 'Extremo Izquierdo'">{{'new-player.newPlayer_35' | translate}}</option>
+                    <option value='Mediapunta' [selected]="r.position == 'Mediapunta'">{{'new-player.newPlayer_36' | translate}}</option>
+                    <option value='Delantero' [selected]="r.position == 'Delantero'">{{'new-player.newPlayer_37' | translate}}</option>
                   </select>
                 </span>
               </ion-col>
@@ -347,7 +347,7 @@
             </ion-row>
 
             <ion-row *ngIf="rosters.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{'new-player.newPlayer_38' | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -357,7 +357,7 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 4" *ngIf="team.user_id == user.id">
-                    Añadir Futbolista
+                    {{'new-player.newPlayer_39' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -372,7 +372,7 @@
 
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 1">
-                    Ok
+                    {{'new-player.newPlayer_40' | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -400,7 +400,7 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Nombre
+                {{'new-player.newPlayer_41' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_name">
@@ -410,7 +410,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Núm.
+                {{'new-player.newPlayer_42' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_number">
@@ -419,50 +419,50 @@
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Principal
+                {{'new-player.newPlayer_43' | translate}}
               </label>
 
               <select [(ngModel)]="player_position" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{'new-player.newPlayer_26' | translate}}</option>
+                <option value='Carrilero'>{{'new-player.newPlayer_27' | translate}}</option>
+                <option value='Mediocampista'>{{'new-player.newPlayer_28' | translate}}</option>
+                <option value='Lateral izquierdo'>{{'new-player.newPlayer_29' | translate}}</option>
+                <option value='Defensa central'>{{'new-player.newPlayer_30' | translate}}</option>
+                <option value='Lateral derecho'>{{'new-player.newPlayer_31' | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{'new-player.newPlayer_32' | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{'new-player.newPlayer_33' | translate}}</option>
+                <option value='Extremo Derecho'>{{'new-player.newPlayer_34' | translate}}</option>
+                <option value='Extremo Izquierdo'>{{'new-player.newPlayer_35' | translate}}</option>
+                <option value='Mediapunta'>{{'new-player.newPlayer_36' | translate}}</option>
+                <option value='Delantero'>{{'new-player.newPlayer_37' | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Secundaria
+                {{'new-player.newPlayer_44' | translate}}
               </label>
 
               <select [(ngModel)]="player_position_2" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{'new-player.newPlayer_26' | translate}}</option>
+                <option value='Carrilero'>{{'new-player.newPlayer_27' | translate}}</option>
+                <option value='Mediocampista'>{{'new-player.newPlayer_28' | translate}}</option>
+                <option value='Lateral izquierdo'>{{'new-player.newPlayer_29' | translate}}</option>
+                <option value='Defensa central'>{{'new-player.newPlayer_30' | translate}}</option>
+                <option value='Lateral derecho'>{{'new-player.newPlayer_31' | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{'new-player.newPlayer_32' | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{'new-player.newPlayer_33' | translate}}</option>
+                <option value='Extremo Derecho'>{{'new-player.newPlayer_34' | translate}}</option>
+                <option value='Extremo Izquierdo'>{{'new-player.newPlayer_35' | translate}}</option>
+                <option value='Mediapunta'>{{'new-player.newPlayer_36' | translate}}</option>
+                <option value='Delantero'>{{'new-player.newPlayer_37' | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3" offset="3">
 
               <label class="modal-label">
-                Fecha de Nac.
+                {{'new-player.newPlayer_45' | translate}}
               </label>
 
               <input type="date" class="modal-input" [(ngModel)]="player_bday">             
@@ -472,13 +472,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Sexo
+                {{'new-player.newPlayer_46' | translate}}
               </label>
 
               <select [(ngModel)]="player_sex" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Masculino</option>
-                <option>Femenino</option>
+                <option value="Masculino">{{'new-player.newPlayer_47' | translate}}</option>
+                <option value="Femenino">{{'new-player.newPlayer_48' | translate}}</option>
               </select>
 
             </ion-col>
@@ -486,7 +486,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Peso
+                {{'new-player.newPlayer_49' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_weight">
@@ -496,7 +496,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Altura
+                {{'new-player.newPlayer_50' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_height">
@@ -506,13 +506,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Dominancia
+                {{'new-player.newPlayer_51' | translate}}
               </label>
 
               <select [(ngModel)]="player_side" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Diestro</option>
-                <option>Zurdo</option>
+                <option value="Diestro">{{'new-player.newPlayer_52' | translate}}</option>
+                <option value="Zurdo">{{'new-player.newPlayer_53' | translate}}</option>
               </select>
               
             </ion-col>
@@ -528,7 +528,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Teléfono de Contacto
+                {{'new-player.newPlayer_54' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_phone">
@@ -538,7 +538,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Email de Contacto
+               {{'new-player.newPlayer_55' | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_email">
@@ -547,7 +547,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Características o atributos
+                {{'new-player.newPlayer_56' | translate}}
               </label>
 
               <textarea [(ngModel)]="player_notes" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="6"></textarea>
@@ -559,13 +559,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!player_name" (click)="savePlayer()">
-                    Agregar
+                    {{'new-player.newPlayer_57' | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 3">
-                    Cancelar
+                    {{'new-player.newPlayer_58' | translate}}
                   </button>
                 </ion-col>
               </ion-row>

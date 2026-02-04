@@ -3,6 +3,8 @@ import { ModalController, AlertController, LoadingController } from '@ionic/angu
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-new-project',
   templateUrl: './new-project.page.html',
@@ -82,7 +84,7 @@ export class NewProjectPage implements OnInit {
 
   players_selected:any = [];
 
-  constructor(public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
 
   ngOnInit() {
     this.getTeams();
@@ -243,18 +245,18 @@ export class NewProjectPage implements OnInit {
   upProject():any
   {
     if (!this.team1 || !this.team2) {
-      this.alertCtrl.create({message:"Por favor, seleccione los equipos para el partido!"}).then(a=>a.present());
+      this.alertCtrl.create({message:this.translate.instant("new-project.newProject_108")}).then(a=>a.present());
       return false;
     }
-    this.alertCtrl.create({message:"Escriba un nombre para el partido", inputs: [
+    this.alertCtrl.create({message:this.translate.instant("new-project.newProject_109"), inputs: [
         {
-          label:'Nombre del partido',
+          label:this.translate.instant("new-project.newProject_110"),
           name:'name',
           type:'text'
         }
       ], buttons: [
         {
-          text:"Aceptar",
+          text:this.translate.instant("new-project.newProject_111"),
           handler: (a:any):any=> {
             if (!a.name) {
               return false;
@@ -340,7 +342,7 @@ export class NewProjectPage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("new-project.newProject_112"), buttons: [
     {
       text:"Si",
       handler:()=>{
@@ -356,16 +358,16 @@ export class NewProjectPage implements OnInit {
 
   delete2(id:any,t:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("new-project.newProject_113"), buttons: [
     {
-      text:"Si",
+      text:this.translate.instant("new-project.newProject_114"),
       handler:()=>{
         this.api.deleteRoster(id).subscribe(data=>{
           this.getRosters(t);
         });
       }
     },{
-      text:"No"
+      text:this.translate.instant("new-project.newProject_115")
     }
     ]}).then(a=>a.present());
   }

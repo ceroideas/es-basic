@@ -3,6 +3,8 @@ import { ModalController, AlertController, LoadingController } from '@ionic/angu
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-new-exercise',
   templateUrl: './new-exercise.page.html',
@@ -84,7 +86,7 @@ export class NewExercisePage implements OnInit {
 
   players_selected:any = [];
 
-  constructor(public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
 
   ngOnInit() {
     this.getTeams();
@@ -290,7 +292,7 @@ export class NewExercisePage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("newExercise.newExercise_120"), buttons: [
     {
       text:"Si",
       handler:()=>{
@@ -306,7 +308,7 @@ export class NewExercisePage implements OnInit {
 
   delete2(id:any,t:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("newExercise.newExercise_121"), buttons: [
     {
       text:"Si",
       handler:()=>{
@@ -323,11 +325,11 @@ export class NewExercisePage implements OnInit {
   upProject():any
   {
     if (!this.name) {
-      this.alertCtrl.create({message:"Por favor, escriba el nombre del ejercicio!"}).then(a=>a.present());
+      this.alertCtrl.create({message:this.translate.instant("newExercise.newExercise_122")}).then(a=>a.present());
       return false;
     }
     if (!this.difficult) {
-      this.alertCtrl.create({message:"Por favor, Seleccione la dificultad del ejercicio!"}).then(a=>a.present());
+      this.alertCtrl.create({message:this.translate.instant("newExercise.newExercise_123")}).then(a=>a.present());
       return false;
     }
     

@@ -57,14 +57,21 @@ ion-menu-button {
   margin: auto;
   left: 0;
   right: 0;
+
   span {
     text-shadow: 1px 1px 1px black;
+    font-size: 13px !important;
   }
+
   .team-color {
     margin: auto !important;
     margin-bottom: 2px !important;
     margin-top: 0px !important;
     cursor: pointer;
+  }
+  .image-holder-draggable {
+    span {
+    }
   }
 }
 

@@ -13,6 +13,9 @@ import { TerrainPage } from '../pages/terrain/terrain.page';
 import { TeamsPage } from '../pages/teams/teams.page';
 import { PlayersPage } from '../pages/players/players.page';
 
+import { ScoutingPage } from '../pages/scouting/scouting.page';
+import { GameSheetPage } from '../pages/game-sheet/game-sheet.page';
+
 import { PrEventsPage } from '../pages/pr-events/pr-events.page';
 import { ReportsPage } from '../pages/reports/reports.page';
 import { CalendarPage } from '../pages/calendar/calendar.page';
@@ -20,6 +23,8 @@ import { CalendarPage } from '../pages/calendar/calendar.page';
 import { EventsService } from '../services/events.service';
 import { ApiService } from '../services/api.service';
 import { Html2canvasService } from '../services/html2canvas.service';
+
+import { TranslateService } from '@ngx-translate/core';
 
 const interact = require('interactjs')
 
@@ -46,6 +51,16 @@ export class FolderPage implements OnInit {
   @ViewChild('campo', { static: false }) campo: ElementRef;
   @ViewChild('imageCanvas', { static: false }) canvas: any;
   @ViewChild('elementtocopy', { static: false }) mainDiv: ElementRef;
+
+  lang:any = localStorage.getItem('language') ? localStorage.getItem('language') : 'es';
+
+  changeLanguage()
+  {
+    console.log(this.lang);
+    localStorage.setItem('language',this.lang);
+    this.translate.use(this.lang);
+    this.translate.setDefaultLang(this.lang);
+  }
 
   user = JSON.parse(localStorage.getItem('AFECuser') || "{}");
 
@@ -118,7 +133,7 @@ export class FolderPage implements OnInit {
   {image:'/assets/assets/icono-balon-tenis.svg', class: 'w25'},
   {image:'/assets/assets/icono-banderin-01.svg', class: 'w60'},
   {image:'/assets/assets/icono-banderin-02.svg', class: 'w60'},
-  {image:'/assets/assets/icono-cama-elastica-01.svg', class: ''},
+  {image:'/assets/assets/icono-cama-elastica-01.svg', class: 'w60'},
   {image:'/assets/assets/icono-cama-elastica-02.svg', class: 'w80'},
   {image:'/assets/assets/icono-cono-grande.svg', class: 'w30'},
   {image:'/assets/assets/icono-cono-mini.svg', class: 'w40'},
@@ -141,7 +156,7 @@ export class FolderPage implements OnInit {
 
   img:any;
 
-  exercises:any;
+  exercises:any[] = [];
 
   bg;
   session = localStorage.getItem('session') ? JSON.parse(localStorage.getItem('session') || "{}") : null;
@@ -150,6 +165,7 @@ export class FolderPage implements OnInit {
 
   constructor(public html2canvas: Html2canvasService, public api: ApiService, private loading: LoadingController, public platform: Platform,
     private toastCtrl: ToastController,
+    private translate: TranslateService,
     private activatedRoute: ActivatedRoute,
     public modal: ModalController, public alert: AlertController, public action: ActionSheetController, public events: EventsService, public nav: NavController) {
 
@@ -282,24 +298,24 @@ export class FolderPage implements OnInit {
               let acButtons = [];
               if (_this.realizeAction == 'rotate') {
                 acButtons = [
-                    {text:"Borrar",icon:"trash",handler:()=>{
+                    {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                       this.remove();
                     }},
-                    {text:"Mover elementos",icon:"move-outline",handler:()=>{
+                    {text:_this.translate.instant('main.move_elements'),icon:"move-outline",handler:()=>{
                       _this.realizeAction = 'move';
                       _this.startToDrag();
                     }},]
 
                     if (this.classList.contains('increment')) {
-                      acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)+5;
-                        // console.log(w);
+                        console.log(w);
                         (this.children[0] as any).style.width = w+'px';
                         return false;
                       }},
-                      {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)-5;
                         if (w <= 0) {
                           return false;
@@ -313,7 +329,7 @@ export class FolderPage implements OnInit {
                   ;
               }else{
                 acButtons = [
-                    {text:"Borrar",icon:"trash",handler:()=>{
+                    {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                       this.remove();
                     }},
                     {text:"Rotar elementos",icon:"refresh-outline",handler:()=>{
@@ -322,15 +338,15 @@ export class FolderPage implements OnInit {
                     }}];
 
                     if (this.classList.contains('increment')) {
-                      acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)+5;
-                        // console.log(w);
+                        console.log(w,this.children[0]);
                         (this.children[0] as any).style.width = w+'px';
                         return false;
                       }},
-                      {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)-5;
                         if (w <= 0) {
                           return false;
@@ -340,12 +356,12 @@ export class FolderPage implements OnInit {
                       }});
                     }
 
-                    acButtons.push({text:"Cancelar",icon:"", handler:()=>{}});
+                    acButtons.push({text:_this.translate.instant('main.cancel'),icon:"", handler:()=>{}});
               }
               // compare first click to this click and see if they occurred within double click threshold
               if (((new Date().getTime()) - touchtime) < 800) {
                   // double click occurred
-                  _this.action.create({header:"Elemento seleccionado",buttons:acButtons}).then(a=>a.present());
+                  _this.action.create({header:_this.translate.instant('main.selected_element'),buttons:acButtons}).then(a=>a.present());
                   // console.log(this)
                   touchtime = 0;
               } else {
@@ -409,7 +425,7 @@ export class FolderPage implements OnInit {
 
   logout()
   {
-    this.alert.create({message:"¿Desea cerrar la sesión?", buttons: [
+    this.alert.create({message:this.translate.instant('main.close_session'), buttons: [
 
     {
       text:"Si",
@@ -576,7 +592,7 @@ export class FolderPage implements OnInit {
           formData.append("elements", JSON.stringify(elems));
 
           if (returnToPlay) {
-            this.loading.create({message:"Sincronizando medios"}).then(l=>l.present());
+            this.loading.create({message:this.translate.instant('main.synchronizing_media')}).then(l=>l.present());
           }
 
 
@@ -589,7 +605,7 @@ export class FolderPage implements OnInit {
 
               this.api.upScene(formData).subscribe(data=>{
                 this.capturing = false;
-                if (toast) {this.presentToast("Se ha guardado la escena correctamente!");}
+                if (toast) {this.presentToast(this.translate.instant('main.scene_saved'));}
                 // console.log(data);
                 localStorage.setItem('actualProject',JSON.stringify(data));
                 this.project = data;
@@ -648,9 +664,9 @@ export class FolderPage implements OnInit {
 
       }else{
         //
-        this.alert.create({message:"Desea guardar el ejercicio?", buttons: [
+        this.alert.create({message:this.translate.instant('main.save_exercise'), buttons: [
         {
-          text:"Si, guardar",
+          text:this.translate.instant('main.yes_save'),
           handler: ()=>{
             this.loading.create().then(l=>{
               l.present();
@@ -670,7 +686,7 @@ export class FolderPage implements OnInit {
               formData.append("user_id", this.user.id);
               formData.append("file", blob);
               formData.append("order", this.project.scenes[this.scene].id);
-              formData.append("frame", frame ? 'si' : 'no');
+              formData.append("frame", frame ? this.translate.instant('main.yes') : this.translate.instant('main.no'));
 
               var objetos = document.getElementsByClassName('image-holder-draggable');
 
@@ -700,7 +716,7 @@ export class FolderPage implements OnInit {
               formData.append('lastH',this.h);
 
               this.api.upScene(formData).subscribe(data=>{
-                if (toast) {this.presentToast("Se ha guardado la escena correctamente!");}
+                if (toast) {this.presentToast(this.translate.instant('main.scene_saved'));}
                 // console.log(data);
                 localStorage.setItem('actualProject',JSON.stringify(data));
                 this.project = data;
@@ -723,7 +739,7 @@ export class FolderPage implements OnInit {
             })
           }
         },{
-          text:"Cancelar"
+          text:this.translate.instant('main.cancel')
         }
         ]}).then(a=>{
           a.present();
@@ -779,24 +795,24 @@ export class FolderPage implements OnInit {
               let acButtons = [];
               if (_this.realizeAction == 'rotate') {
                 acButtons = [
-                    {text:"Borrar",icon:"trash",handler:()=>{
+                    {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                       this.remove();
                     }},
-                    {text:"Mover elementos",icon:"move-outline",handler:()=>{
+                    {text:_this.translate.instant('main.move_elements'),icon:"move-outline",handler:()=>{
                       _this.realizeAction = 'move';
                       _this.startToDrag();
                     }},]
 
                     if (this.classList.contains('increment')) {
-                      acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
-                        let w = this.children[0].style.width;
+                      acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
+                        let w = this.children[0].offsetWidth;
                         w = parseInt(w)+5;
-                        // console.log(w);
+                        console.log(w);
                         this.children[0].style.width = w+'px';
                         return false;
                       }},
-                      {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
-                        let w = this.children[0].style.width;
+                      {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
+                        let w = this.children[0].offsetWidth;
                         w = parseInt(w)-5;
                         if (w <= 0) {
                           return false;
@@ -806,28 +822,28 @@ export class FolderPage implements OnInit {
                       }});
                     }
 
-                    acButtons.push({text:"Cancelar",icon:"", handler:()=>{}});
+                    acButtons.push({text:_this.translate.instant('main.cancel'),icon:"", handler:()=>{}});
                   ;
               }else{
                 acButtons = [
-                    {text:"Borrar",icon:"trash",handler:()=>{
+                    {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                       this.remove();
                     }},
-                    {text:"Rotar elementos",icon:"refresh-outline",handler:()=>{
+                    {text:_this.translate.instant('main.rotate_elements'),icon:"refresh-outline",handler:()=>{
                       _this.realizeAction = 'rotate';
                       _this.startToDrag();
                     }}];
 
                     if (this.classList.contains('increment')) {
-                      acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
-                        let w = this.children[0].style.width;
+                      acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
+                        let w = this.children[0].offsetWidth;
                         w = parseInt(w)+5;
-                        // console.log(w);
+                        console.log(w);
                         this.children[0].style.width = w+'px';
                         return false;
                       }},
-                      {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
-                        let w = this.children[0].style.width;
+                      {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
+                        let w = this.children[0].offsetWidth;
                         w = parseInt(w)-5;
                         if (w <= 0) {
                           return false;
@@ -837,9 +853,9 @@ export class FolderPage implements OnInit {
                       }});
                     }
 
-                    acButtons.push({text:"Cancelar",icon:"", handler:()=>{}});
+                    acButtons.push({text:_this.translate.instant('main.cancel'),icon:"", handler:()=>{}});
               }
-              _this.action.create({header:"Elemento seleccionado",buttons:acButtons}).then(a=>a.present());
+              _this.action.create({header:_this.translate.instant('main.selected_element'),buttons:acButtons}).then(a=>a.present());
               // console.log(this)
               touchtime = 0;
           } else {
@@ -1140,7 +1156,7 @@ export class FolderPage implements OnInit {
 
   addText()
   {
-    this.alert.create({message:"Escriba el texto que desea agregar",
+    this.alert.create({message:this.translate.instant('main.write_text'),
     inputs: [
     {
       type: 'text',
@@ -1188,26 +1204,26 @@ export class FolderPage implements OnInit {
                   let acButtons = [];
                   if (_this.realizeAction == 'rotate') {
                     acButtons = [
-                        {text:"Borrar",icon:"trash",handler:()=>{
+                        {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                           this.remove();
                         }},
-                        {text:"Mover elementos",icon:"move-outline",handler:()=>{
+                        {text:_this.translate.instant('main.move_elements'),icon:"move-outline",handler:()=>{
                           _this.realizeAction = 'move';
                           _this.startToDrag();
                         }},]
 
                         // if (this.classList.contains('increment')) {
-                          acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
+                          acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
                             let w = (this.children[0].children[0] as any).style.transform.replace(/[^\d.-]/g,'');
-                            // console.log(w);
+                            console.log(w);
                             w = parseInt(w)+.1;
-                            // console.log(w);
+                            console.log(w);
                             (this.children[0].children[0] as any).style.transform = 'scale('+w+')';
                             return false;
                           }},
-                          {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
+                          {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
                             let w = (this.children[0].children[0] as any).style.transform.replace(/[^\d.-]/g,'');
-                            // console.log(w);
+                            console.log(w);
                             w = parseInt(w)-.1;
                             if (w <= 0) {
                               return false;
@@ -1215,7 +1231,7 @@ export class FolderPage implements OnInit {
                             (this.children[0].children[0] as any).style.transform = 'scale('+w+')';
                             return false;
                           }},{
-                            text:"Cambiar color", icon: "color-palette",handler:()=>{
+                            text:_this.translate.instant('main.change_color'), icon: "color-palette",handler:()=>{
                               _this.actualTextId = this['id'];
                               _this.selectColorText = true;
                             }
@@ -1226,26 +1242,26 @@ export class FolderPage implements OnInit {
                       ;
                   }else{
                     acButtons = [
-                        {text:"Borrar",icon:"trash",handler:()=>{
+                        {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                           this.remove();
                         }},
-                        {text:"Rotar elementos",icon:"refresh-outline",handler:()=>{
+                        {text:_this.translate.instant('main.rotate_elements'),icon:"refresh-outline",handler:()=>{
                           _this.realizeAction = 'rotate';
                           _this.startToDrag();
                         }}];
 
                         // if (this.classList.contains('increment')) {
-                          acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
+                          acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
                             let w = (this.children[0].children[0] as any).style.transform.replace(/[^\d.-]/g,'');
-                            // console.log(w);
+                            console.log(w);
                             w = parseFloat(w)+.1;
-                            // console.log(w);
+                            console.log(w);
                             (this.children[0].children[0] as any).style.transform = 'scale('+w+')';
                             return false;
                           }},
-                          {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
+                          {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
                             let w = (this.children[0].children[0] as any).style.transform.replace(/[^\d.-]/g,'');
-                            // console.log(w);
+                            console.log(w);
                             w = parseFloat(w)-.1;
                             if (w <= 0) {
                               return false;
@@ -1253,16 +1269,16 @@ export class FolderPage implements OnInit {
                             (this.children[0].children[0] as any).style.transform = 'scale('+w+')';
                             return false;
                           }},{
-                            text:"Cambiar color", icon: "color-palette",handler:()=>{
+                            text:_this.translate.instant('main.change_color'), icon: "color-palette",handler:()=>{
                               _this.actualTextId = this['id'];
                               _this.selectColorText = true;
                             }
                           });
                         // }
 
-                        acButtons.push({text:"Cancelar",icon:"", handler:()=>{}});
+                        acButtons.push({text:_this.translate.instant('main.cancel'),icon:"", handler:()=>{}});
                   }
-                  _this.action.create({header:"Elemento seleccionado",buttons:acButtons}).then(a=>a.present());
+                  _this.action.create({header:_this.translate.instant('main.selected_element'),buttons:acButtons}).then(a=>a.present());
                   // console.log(this)
                   touchtime = 0;
               } else {
@@ -1277,7 +1293,7 @@ let e = document.getElementById("drop-element");
         e ? e.appendChild(cln) : null;
       }
     },{
-      text:"Cancelar"
+      text:this.translate.instant('main.cancel')
     }]}).then(a=>a.present())
   }
 
@@ -1290,7 +1306,7 @@ let e = document.getElementById("drop-element");
 
   clearCanvas()
   {
-    this.alert.create({message:"Desea borrar toda la tinta?", buttons: [
+    this.alert.create({message:this.translate.instant('main.delete_all_ink'), buttons: [
     {
       text:"Si",
       handler: () =>{
@@ -1511,24 +1527,24 @@ let e = document.getElementById("drop-element");
               let acButtons = [];
               if (_this.realizeAction == 'rotate') {
                 acButtons = [
-                    {text:"Borrar",icon:"trash",handler:()=>{
+                    {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                       this.remove();
                     }},
-                    {text:"Mover elementos",icon:"move-outline",handler:()=>{
+                    {text:_this.translate.instant('main.move_elements'),icon:"move-outline",handler:()=>{
                       _this.realizeAction = 'move';
                       _this.startToDrag();
                     }},]
 
                     if (this.classList.contains('increment')) {
-                      acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)+5;
-                        // console.log(w);
+                        console.log(w);
                         (this.children[0] as any).style.width = w+'px';
                         return false;
                       }},
-                      {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)-5;
                         if (w <= 0) {
                           return false;
@@ -1542,7 +1558,7 @@ let e = document.getElementById("drop-element");
                   ;
               }else{
                 acButtons = [
-                    {text:"Borrar",icon:"trash",handler:()=>{
+                    {text:_this.translate.instant('main.delete'),icon:"trash",handler:()=>{
                       this.remove();
                     }},
                     {text:"Rotar elementos",icon:"refresh-outline",handler:()=>{
@@ -1551,15 +1567,15 @@ let e = document.getElementById("drop-element");
                     }}];
 
                     if (this.classList.contains('increment')) {
-                      acButtons.push({text:"Aumentar tamaño",icon:"caret-up-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      acButtons.push({text:_this.translate.instant('main.increase_size'),icon:"caret-up-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)+5;
-                        // console.log(w);
+                        console.log(w);
                         (this.children[0] as any).style.width = w+'px';
                         return false;
                       }},
-                      {text:"Disminuir tamaño",icon:"caret-down-outline",handler:()=>{
-                        let w = (this.children[0] as any).style.width;
+                      {text:_this.translate.instant('main.decrease_size'),icon:"caret-down-outline",handler:()=>{
+                        let w = (this.children[0] as any).offsetWidth;
                         w = parseInt(w)-5;
                         if (w <= 0) {
                           return false;
@@ -1569,12 +1585,12 @@ let e = document.getElementById("drop-element");
                       }});
                     }
 
-                    acButtons.push({text:"Cancelar",icon:"", handler:()=>{}});
+                    acButtons.push({text:_this.translate.instant('main.cancel'),icon:"", handler:()=>{}});
               }
               // compare first click to this click and see if they occurred within double click threshold
               if (((new Date().getTime()) - touchtime) < 800) {
                   // double click occurred
-                  _this.action.create({header:"Elemento seleccionado",buttons:acButtons}).then(a=>a.present());
+                  _this.action.create({header:_this.translate.instant('main.selected_element'),buttons:acButtons}).then(a=>a.present());
                   // console.log(this)
                   touchtime = 0;
               } else {
@@ -1751,6 +1767,32 @@ let e = document.getElementById("drop-element");
     _modal.present();
   }
 
+  async openScouting()
+  {
+    if (!this.api.vPro) {
+      return this.api.goPro();
+    }
+    const _modal = await this.modal.create({
+      component: ScoutingPage,
+      cssClass: 'modalAF'
+    })
+
+    _modal.present();
+  }
+
+  async openGame()
+  {
+    if (!this.api.vPro) {
+      return this.api.goPro();
+    }
+    const _modal = await this.modal.create({
+      component: GameSheetPage,
+      cssClass: 'modalAF'
+    })
+
+    _modal.present();
+  }
+
   async openEvents()
   {
     const _modal = await this.modal.create({
@@ -1881,7 +1923,7 @@ let e = document.getElementById("drop-element");
 
   speed()
   {
-    this.action.create({header:"Seleccione la velocidad",buttons:[
+    this.action.create({header:this.translate.instant('main.select_speed'),buttons:[
       {text:"1X",handler:()=>{
         this.sceneInterval = 2000;
         this.shownSpeed = 1;
@@ -1907,7 +1949,7 @@ let e = document.getElementById("drop-element");
     if (this.project.scenes.length <= 1) {
       return false;
     }
-    this.alert.create({message:"¿Desea borrar la escena seleccionada?", buttons:[{text:"Si", handler:()=>{
+    this.alert.create({message:this.translate.instant('main.delete_scene'), buttons:[{text:"Si", handler:()=>{
       // this.project.scenes[this.scene].schene = null;
       // this.project.scenes[this.scene].image = null;
 

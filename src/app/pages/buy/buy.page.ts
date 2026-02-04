@@ -4,6 +4,8 @@ import { ApiService } from '../../services/api.service';
 
 import { environment } from '../../../environments/environment';
 
+import { TranslateService } from '@ngx-translate/core';
+
 declare var Stripe:any;
 
 const stripe = Stripe(environment.STRIPE_KEY);
@@ -27,7 +29,7 @@ export class BuyPage implements OnInit {
   amount:any;
   type:any;
 
-  constructor(public navCtrl: NavController, public api: ApiService, public loadingController: LoadingController, public alertCtrl: AlertController, public modal: ModalController) { }
+  constructor(public translate: TranslateService, public navCtrl: NavController, public api: ApiService, public loadingController: LoadingController, public alertCtrl: AlertController, public modal: ModalController) { }
 
   ngOnInit() {
     console.log(stripe);
@@ -99,10 +101,10 @@ export class BuyPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertCtrl.create({
-      header: 'Pago realizado',
-      message: 'El pago ha sido realizado correctamente, en breve la aplicación quedará activada.',
+      header: this.translate.instant('buy.buy_16'),
+      message: this.translate.instant('buy.buy_17'),
       buttons: [{
-        text: 'Aceptar',
+        text: this.translate.instant('buy.buy_18'),
         handler:()=>{
 
           setTimeout(()=>{
@@ -112,9 +114,9 @@ export class BuyPage implements OnInit {
                 this.api.vPro = true;
                 
                 this.alertCtrl.create({
-                  header: 'Versión PRO',
-                  message: 'La versión PRO ha sido activada, disfruta de todas las ventajas.',
-                  buttons: ['Aceptar']}).then(a=>{a.present()});
+                  header: this.translate.instant('buy.buy_19'),
+                  message: this.translate.instant('buy.buy_20'),
+                  buttons: [this.translate.instant('buy.buy_21')]}).then(a=>{a.present()});
 
               }else{
                 // this.api.vPro = true;

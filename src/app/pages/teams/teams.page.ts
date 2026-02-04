@@ -3,6 +3,8 @@ import { ModalController, AlertController, LoadingController } from '@ionic/angu
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 declare var moment:any;
 
 @Component({
@@ -68,7 +70,7 @@ export class TeamsPage implements OnInit {
 
   players_selected:any = [];
 
-  constructor(public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
 
   ngOnInit() {
     this.getTeams();
@@ -350,32 +352,32 @@ export class TeamsPage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("teams.teams_58"), buttons: [
     {
-      text:"Si",
+      text:this.translate.instant("teams.teams_59"),
       handler:()=>{
         this.api.deleteTeam(id).subscribe(data=>{
           this.getTeams();
         });
       }
     },{
-      text:"No"
+      text:this.translate.instant("teams.teams_60")
     }
     ]}).then(a=>a.present());
   }
 
   delete2(id:any,t:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("teams.teams_58"), buttons: [
     {
-      text:"Si",
+      text:this.translate.instant("teams.teams_59"),
       handler:()=>{
         this.api.deleteRoster(id).subscribe(data=>{
           this.getRosters(t);
         });
       }
     },{
-      text:"No"
+      text:this.translate.instant("teams.teams_60")
     }
     ]}).then(a=>a.present());
   }

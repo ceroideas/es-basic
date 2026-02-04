@@ -16,7 +16,7 @@
       </div>
 
       <div class="input">
-        <input type="email" [(ngModel)]="email" placeholder="E-mail">
+        <input type="email" [(ngModel)]="email" placeholder="{{'register.email' | translate}}">
       </div>
       <div style="clear: both;"></div>
     </div>
@@ -27,7 +27,7 @@
       </div>
 
       <div class="input">
-        <input type="text" [(ngModel)]="name" placeholder="Nombre">
+        <input type="text" [(ngModel)]="name" placeholder="{{'register.name' | translate}}">
       </div>
       <div style="clear: both;"></div>
     </div>
@@ -38,7 +38,7 @@
       </div>
 
       <div class="input">
-        <input type="password" [(ngModel)]="password" placeholder="Password">
+        <input type="password" [(ngModel)]="password" placeholder="{{'register.password' | translate}}">
       </div>
       <div style="clear: both;"></div>
     </div>
@@ -49,20 +49,20 @@
       </div>
 
       <div class="input">
-        <input type="password" [(ngModel)]="password_confirmation" placeholder="Repite la Password">
+        <input type="password" [(ngModel)]="password_confirmation" placeholder="{{'register.repeat_password' | translate}}">
       </div>
       <div style="clear: both;"></div>
     </div>
 
     <label>
-      <input type="checkbox" [(ngModel)]="terms"> <span class="other-text dil">Acepto los términos y condiciones</span>
+      <input type="checkbox" [(ngModel)]="terms"> <span class="other-text dil">{{'register.accept' | translate}}</span>
     </label>
 
     <button class="button-login" (click)="register()" routerDirection="root">
-      REGISTRAR
+      {{'register.register' | translate}}
     </button>
 
-    <span class="other-text">¿Ya tienes cuenta? <span  [routerLink]="['/login']" routerDirection="root">Inicia sesión</span></span>
+    <span class="other-text">{{'register.already_account' | translate}} <span  [routerLink]="['/login']" routerDirection="root">{{'register.login' | translate}}</span></span>
 
   </div>
 

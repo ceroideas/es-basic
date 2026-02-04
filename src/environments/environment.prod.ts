@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  STRIPE_KEY:'pk_test_51PDu03RseARsWMnZH5noKXjGLAId1EbWeJLNDHT5xAYwfMvbg5ijTKE2MXkR0aAbvUDyCHUbpICq99YQMzyNOYfl00xQqfXvHU',
-  STRIPE_SECRET:'sk_test_51PDu03RseARsWMnZTeoatBqVE8FcOLlyrvo6uhMUf9MKxIej688fdp4Nk5cHFh7OQrKs4TnqsTp620baaN4iR3xu00taJ1yrEy',
+  STRIPE_KEY:'pk_live_51PDu03RseARsWMnZ1OXQDWwnw0j3gRIOn6Scf5nvLZmeZHDsF4zKpxQHhjCRi9yJLtcjvCSnCP7irNxzgogEkoXg00G37VGLBn',
+  STRIPE_SECRET:'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',
 };

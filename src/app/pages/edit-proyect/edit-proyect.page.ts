@@ -3,6 +3,8 @@ import { ModalController, AlertController, LoadingController } from '@ionic/angu
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-edit-proyect',
   templateUrl: './edit-proyect.page.html',
@@ -44,7 +46,7 @@ export class EditProyectPage implements OnInit {
 
   @Input() project:any;
 
-  constructor(public api: ApiService, public alertCtrl: AlertController,
+  constructor(public api: ApiService, public alertCtrl: AlertController, public translate: TranslateService,
     public loadingCtrl: LoadingController, public modal: ModalController,
     public events: EventsService) { }
 
@@ -83,11 +85,11 @@ export class EditProyectPage implements OnInit {
   upProject():any
   {
     if (!this.name) {
-      this.alertCtrl.create({message:"Por favor, escriba el nombre del ejercicio!"}).then(a=>a.present());
+      this.alertCtrl.create({message:this.translate.instant("editProject.editProject_32")}).then(a=>a.present());
       return false;
     }
     if (!this.difficult) {
-      this.alertCtrl.create({message:"Por favor, Seleccione la dificultad del ejercicio!"}).then(a=>a.present());
+      this.alertCtrl.create({message:this.translate.instant("editProject.editProject_33")}).then(a=>a.present());
       return false;
     }
     

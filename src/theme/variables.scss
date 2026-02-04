@@ -163,9 +163,15 @@ app-login {
   // .modal-wrapper {
     --width: 95%;
     --max-width: 1280px;
-    --height: 700px;
+    --height: 100vh;
+    --overflow: auto;
     --background: transparent;
+    padding-top: 40px;
   // }
+}
+
+ion-modal>.ion-page {
+  height: 700px !important;
 }
 
 #container { position: relative; }
@@ -405,28 +411,36 @@ table, tbody, .fc-daygrid-body {
 }
 
 
+.tools {
+  .rotable {
+    width: 50px !important;
+  }
+}
 
 #drop-element {
   .w25 {
-    width: 25px !important;
+    width: 25px;
   }
   .w30 {
-    width: 30px !important;
+    width: 30px;
   }
   .w40 {
-    width: 40px !important;
+    width: 40px;
+  }
+  .w50 {
+    width: 50px;
   }
   .w60 {
-    width: 60px !important;
+    width: 60px;
   }
   .w80 {
-    width: 80px !important;
+    width: 80px;
   }
   .w90 {
-    width: 90px !important;
+    width: 90px;
   }
   .w110 {
-    width: 110px !important;
+    width: 110px;
   }
 }
 

@@ -3,6 +3,8 @@ import { ModalController,LoadingController, AlertController } from '@ionic/angul
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-open-exercise',
   templateUrl: './open-exercise.page.html',
@@ -19,7 +21,7 @@ export class OpenExercisePage implements OnInit {
 
   user = JSON.parse(localStorage.getItem('AFECuser'));
 
-  constructor(public modal: ModalController, public api: ApiService, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public modal: ModalController, public api: ApiService, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public events: EventsService) { }
 
   ngOnInit() {
     this.api.getExercises(this.user.id).subscribe(data=>{
@@ -67,7 +69,7 @@ export class OpenExercisePage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("open-exercise.delete"), buttons: [
     {
       text:"Si",
       handler:()=>{

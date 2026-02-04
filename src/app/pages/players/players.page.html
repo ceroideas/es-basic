@@ -7,7 +7,7 @@
 <ion-content>
 
   <div id="modal-header">
-    Análisis de futbolistas
+    {{"players.players_1" | translate}}
   </div>
   <div id="outer-modal">
     <div id="inner-modal">
@@ -26,7 +26,7 @@
 
             <ion-col size="4">
               <select [(ngModel)]="equipo" id="" class="form-control" style="top: 0; height: 40px; border-radius: 6px;">
-                <option value="">-- Equipos --</option>    
+                <option value="">-- {{"players.players_2" | translate}} --</option>    
                 <option *ngFor="let t of teams">{{t.name}}</option>
               </select>
             </ion-col>
@@ -59,7 +59,7 @@
 
                   <div style="padding-left: 16px;">
 
-                    <h5 style="margin-top: 0;">Contactos</h5>
+                    <h5 style="margin-top: 0;">{{"players.players_3" | translate}}</h5>
                     
                     {{p.email}} <br>
                     {{p.phone}} <br>
@@ -69,19 +69,19 @@
 
                 <ion-row>
                   <ion-col size="3">
-                    <label>Edad</label> <br>
+                    <label>{{"players.players_4" | translate}}</label> <br>
                     {{p.age}}
                   </ion-col>
                   <ion-col size="3">
-                    <label>Peso</label> <br>
+                    <label>{{"players.players_5" | translate}}</label> <br>
                     {{p.weight}}Kg
                   </ion-col>
                   <ion-col size="3">
-                    <label>Altura</label> <br>
+                    <label>{{"players.players_6" | translate}}</label> <br>
                     {{p.height}}cm
                   </ion-col>
                   <ion-col size="3">
-                    <label>Dominancia</label> <br>
+                    <label>{{"players.players_7" | translate}}</label> <br>
                     {{p.side}}
                   </ion-col>
                 </ion-row>
@@ -109,7 +109,7 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Nombre
+                {{"players.players_8" | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_name">
@@ -119,7 +119,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Núm.
+                {{"players.players_9" | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_number">
@@ -128,50 +128,50 @@
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Principal
+                {{"players.players_10" | translate}}
               </label>
 
               <select [(ngModel)]="player_position" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{"players.players_11" | translate}}</option>
+                <option value='Carrilero'>{{"players.players_12" | translate}}</option>
+                <option value='Mediocampista'>{{"players.players_13" | translate}}</option>
+                <option value='Lateral izquierdo'>{{"players.players_14" | translate}}</option>
+                <option value='Defensa central'>{{"players.players_15" | translate}}</option>
+                <option value='Lateral derecho'>{{"players.players_16" | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{"players.players_17" | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{"players.players_18" | translate}}</option>
+                <option value='Extremo Derecho'>{{"players.players_19" | translate}}</option>
+                <option value='Extremo Izquierdo'>{{"players.players_20" | translate}}</option>
+                <option value='Mediapunta'>{{"players.players_21" | translate}}</option>
+                <option value='Delantero'>{{"players.players_22" | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3">
               <label class="modal-label">
-                Posición Secundaria
+                {{"players.players_23" | translate}}
               </label>
 
               <select [(ngModel)]="player_position_2" class="form-control" style="top: 10px;">
-                <option>Portero</option>
-                <option>Carrilero</option>
-                <option>Mediocampista</option>
-                <option>Lateral izquierdo</option>
-                <option>Defensa central</option>
-                <option>Lateral derecho</option>
-                <option>Centrocampista Ofensivo</option>
-                <option>Centrocampista Defensivo</option>
-                <option>Extremo Derecho</option>
-                <option>Extremo Izquierdo</option>
-                <option>Mediapunta</option>
-                <option>Delantero</option>
+                <option value='Portero'>{{"players.players_11" | translate}}</option>
+                <option value='Carrilero'>{{"players.players_12" | translate}}</option>
+                <option value='Mediocampista'>{{"players.players_13" | translate}}</option>
+                <option value='Lateral izquierdo'>{{"players.players_14" | translate}}</option>
+                <option value='Defensa central'>{{"players.players_15" | translate}}</option>
+                <option value='Lateral derecho'>{{"players.players_16" | translate}}</option>
+                <option value='Centrocampista Ofensivo'>{{"players.players_17" | translate}}</option>
+                <option value='Centrocampista Defensivo'>{{"players.players_18" | translate}}</option>
+                <option value='Extremo Derecho'>{{"players.players_19" | translate}}</option>
+                <option value='Extremo Izquierdo'>{{"players.players_20" | translate}}</option>
+                <option value='Mediapunta'>{{"players.players_21" | translate}}</option>
+                <option value='Delantero'>{{"players.players_22" | translate}}</option>
               </select>
             </ion-col>
 
             <ion-col size="3" offset="3">
 
               <label class="modal-label">
-                Fecha de Nac.
+                {{"players.players_24" | translate}}
               </label>
 
               <input type="date" class="modal-input" [(ngModel)]="player_bday">             
@@ -181,13 +181,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Sexo
+                {{"players.players_25" | translate}}
               </label>
 
               <select [(ngModel)]="player_sex" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Masculino</option>
-                <option>Femenino</option>
+                <option value="Masculino">{{"players.players_26" | translate}}</option>
+                <option value="Femenino">{{"players.players_27" | translate}}</option>
               </select>
 
             </ion-col>
@@ -195,7 +195,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Peso
+                {{"players.players_28" | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_weight">
@@ -205,7 +205,7 @@
             <ion-col size="1">
 
               <label class="modal-label">
-                Altura
+                {{"players.players_29" | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_height">
@@ -215,13 +215,13 @@
             <ion-col size="2">
 
               <label class="modal-label">
-                Dominancia
+                {{"players.players_30" | translate}}
               </label>
 
               <select [(ngModel)]="player_side" class="form-control" style="top: 10px;">
                 <option selected disabled></option>
-                <option>Diestro</option>
-                <option>Zurdo</option>
+                <option value="Diestro">{{"players.players_31" | translate}}</option>
+                <option value="Zurdo">{{"players.players_32" | translate}}</option>
               </select>
               
             </ion-col>
@@ -237,7 +237,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Teléfono de Contacto
+                {{"players.players_33" | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_phone">
@@ -247,7 +247,7 @@
             <ion-col size="6">
 
               <label class="modal-label">
-                Email de Contacto
+                {{"players.players_34" | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="player_email">
@@ -256,7 +256,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Características o atributos
+                {{"players.players_35" | translate}}
               </label>
 
               <textarea [(ngModel)]="player_notes" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="6"></textarea>
@@ -268,13 +268,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 3">
-                    Informes
+                    {{"players.players_36" | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button" (click)="pdfPlayer()">
-                    PDF
+                    {{"players.players_37" | translate}}
                   </button>
                 </ion-col>
 
@@ -284,13 +284,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="!player_name" (click)="savePlayer()">
-                    Aceptar
+                    {{"players.players_38" | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 1">
-                    Cancelar
+                    {{"players.players_39" | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -313,10 +313,10 @@
           </ion-row>
           
           <ion-row style="border-bottom: 1px solid #ccc; text-align: left;">
-            <ion-col size="3">Nombre</ion-col>
-            <ion-col size="3">Tipo</ion-col>
-            <ion-col size="3">Fecha</ion-col>
-            <ion-col size="2">Evaluación</ion-col>
+            <ion-col size="3">{{"players.players_40" | translate}}</ion-col>
+            <ion-col size="3">{{"players.players_41" | translate}}</ion-col>
+            <ion-col size="3">{{"players.players_42" | translate}}</ion-col>
+            <ion-col size="2">{{"players.players_43" | translate}}</ion-col>
             <ion-col size="1"></ion-col>
             
           </ion-row>
@@ -329,9 +329,9 @@
                 <span class="reconfigure">{{r.name}}</span>
               </ion-col>
               <ion-col size="3">
-                <span class="reconfigure" *ngIf="r.type == 1">General</span>
-                <span class="reconfigure" *ngIf="r.type == 2">Entrenamiento</span>
-                <span class="reconfigure" *ngIf="r.type == 3">Partido</span>
+                <span class="reconfigure" *ngIf="r.type == 1">{{"players.players_44" | translate}}</span>
+                <span class="reconfigure" *ngIf="r.type == 2">{{"players.players_45" | translate}}</span>
+                <span class="reconfigure" *ngIf="r.type == 3">{{"players.players_46" | translate}}</span>
               </ion-col>
               <ion-col size="3">
                 <span class="reconfigure">{{r.date | date:'dd-MM-yyyy'}}</span>
@@ -350,7 +350,7 @@
             </ion-row>
 
             <ion-row *ngIf="reports.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{"players.players_47" | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -360,7 +360,7 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 4; report_type = 1">
-                    Añadir Informe
+                    {{"players.players_48" | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -370,7 +370,7 @@
 
                 <ion-col size="6" offset="6">
                   <button class="modal-button" (click)="step = 2; query1 = ''">
-                    Ok
+                    {{"players.players_49" | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -392,7 +392,7 @@
             <ion-col size="4">
 
               <label class="modal-label">
-                Nombre del informe
+                {{"players.players_50" | translate}}
               </label>
 
               <input type="text" class="modal-input" [(ngModel)]="report_name">
@@ -402,7 +402,7 @@
             <ion-col size="4">
 
               <label class="modal-label">
-                Fecha
+                {{"players.players_51" | translate}}
               </label>
 
               <input type="date" class="modal-input" [(ngModel)]="report_date">
@@ -411,13 +411,13 @@
 
             <ion-col size="4">
               <label class="modal-label">
-                Tipo de informe
+                {{"players.players_52" | translate}}
               </label>
 
               <select [(ngModel)]="report_type" class="form-control" style="top: 10px;">
-                <option value="1">General</option>
-                <option value="2">Entrenamiento</option>
-                <option value="3">Partido</option>
+                <option value="1">{{"players.players_53" | translate}}</option>
+                <option value="2">{{"players.players_54" | translate}}</option>
+                <option value="3">{{"players.players_55" | translate}}</option>
               </select>
             </ion-col>
 
@@ -428,7 +428,7 @@
               <ion-row>
                 <ion-col size="12">
                   <label class="modal-label">
-                    Técnica Individual Ofensiva
+                    {{"players.players_56" | translate}}
                   </label>
                 </ion-col>
 
@@ -464,7 +464,7 @@
               <ion-row>
                 <ion-col size="12">
                   <label class="modal-label">
-                    Técnica Individual Defensiva
+                    {{"players.players_57" | translate}}
                   </label>
                 </ion-col>
 
@@ -500,7 +500,7 @@
               <ion-row>
                 <ion-col size="12">
                   <label class="modal-label">
-                    Aspectos Tácticos Ofensivos
+                    {{"players.players_58" | translate}}
                   </label>
                 </ion-col>
 
@@ -536,7 +536,7 @@
               <ion-row>
                 <ion-col size="12">
                   <label class="modal-label">
-                    Aspectos Tácticos Defensivos
+                    {{"players.players_59" | translate}}
                   </label>
                 </ion-col>
 
@@ -572,7 +572,7 @@
               <ion-row>
                 <ion-col size="12">
                   <label class="modal-label">
-                    Aspectos Actitudinales
+                    {{"players.players_60" | translate}}
                   </label>
                 </ion-col>
 
@@ -608,7 +608,7 @@
               <ion-row>
                 <ion-col size="12">
                   <label class="modal-label">
-                    Aspectos Físicos Condicionales
+                    {{"players.players_61" | translate}}
                   </label>
                 </ion-col>
 
@@ -677,7 +677,7 @@
 
             <ion-col size="12">
               <label class="modal-label">
-                Conclusiones
+                {{"players.players_62" | translate}}
               </label>
 
               <textarea [(ngModel)]="report_conclusion" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="6"></textarea>
@@ -690,13 +690,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="saveReport()">
-                    Aceptar
+                    {{"players.players_63" | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 3">
-                    Cancelar
+                    {{"players.players_64" | translate}}
                   </button>
                 </ion-col>
               </ion-row>

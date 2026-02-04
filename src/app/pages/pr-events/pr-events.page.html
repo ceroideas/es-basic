@@ -7,7 +7,7 @@
 <ion-content>
 
   <div id="modal-header">
-    Eventos
+    {{"pr-events.prEvents_1" | translate}}
   </div>
 
   <div id="outer-modal">
@@ -28,10 +28,10 @@
           </ion-row>
           
           <ion-row style="border-bottom: 1px solid #ccc; text-align: center;">
-            <ion-col size="3">Evento</ion-col>
-            <ion-col size="4">Jugador</ion-col>
-            <ion-col size="2">Periodo</ion-col>
-            <ion-col size="2">Minuto</ion-col>
+            <ion-col size="3">{{"pr-events.prEvents_2" | translate}}</ion-col>
+            <ion-col size="4">{{"pr-events.prEvents_3" | translate}}</ion-col>
+            <ion-col size="2">{{"pr-events.prEvents_4" | translate}}</ion-col>
+            <ion-col size="2">{{"pr-events.prEvents_5" | translate}}</ion-col>
             <ion-col size="1"></ion-col>
           </ion-row>
 
@@ -45,9 +45,9 @@
               </ion-col>
               <ion-col size="4">
                 {{e.player.name}} <br>
-                <small *ngIf="e.assistant_id">Asistido por <b>{{e.assistant.name}}</b></small>
-                <small *ngIf="e.commited_id"> Cometido a <b>{{e.commited.name}}</b></small>
-                <small *ngIf="e.substitution_id"> Sustituido por <b>{{e.substitution.name}}</b></small>
+                <small *ngIf="e.assistant_id">{{"pr-events.prEvents_6" | translate}} <b>{{e.assistant.name}}</b></small>
+                <small *ngIf="e.commited_id"> {{"pr-events.prEvents_7" | translate}} <b>{{e.commited.name}}</b></small>
+                <small *ngIf="e.substitution_id"> {{"pr-events.prEvents_8" | translate}} <b>{{e.substitution.name}}</b></small>
               </ion-col>
               <ion-col size="2">
                 <ion-icon name="radio-button-on-outline" *ngIf="e.period >= 1"></ion-icon>
@@ -69,7 +69,7 @@
             </ion-row>
 
             <ion-row *ngIf="prevents?.length == 0">
-              <ion-col size="12" style="text-align: center; font-size: 14px;">Sin resultados</ion-col>
+              <ion-col size="12" style="text-align: center; font-size: 14px;">{{"pr-events.prEvents_9" | translate}}</ion-col>
             </ion-row>
 
           </div>
@@ -79,7 +79,7 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" (click)="step = 2">
-                    Nuevo Evento
+                    {{"pr-events.prEvents_10" | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -89,12 +89,12 @@
                 
                 <ion-col size="6">
                   <button class="modal-button success" (click)="pdf()">
-                    PDF
+                    {{"pr-events.prEvents_11" | translate}}
                   </button>
                 </ion-col>
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="modal.dismiss()">
-                    Cerrar
+                    {{"pr-events.prEvents_12" | translate}}
                   </button>
                 </ion-col>
               </ion-row>
@@ -113,35 +113,35 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Evento
+                {{"pr-events.prEvents_13" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="event">
                   <option selected></option>
-                  <option>Tiro</option>
-                  <option>Pase</option>
-                  <option>Cruzar</option>
-                  <!-- <option>Entrada</option> -->
-                  <option>Falta</option>
-                  <option>Fuera de juego</option>
-                  <option>Driblar</option>
-                  <option>Rotación</option>
-                  <option>Lanzamiento</option>
-                  <option>Saque de esquina</option>
-                  <option>Tiro libre directo</option>
-                  <option>Tiro libre indirecto</option>
-                  <option>Tiro penal</option>
-                  <option>Auto Gol</option>
-                  <option>Tarjeta amarilla</option>
-                  <option>Tarjeta roja</option>
-                  <option>Sustitución</option>
+                  <option value="Tiro">{{"pr-events.prEvents_14" | translate}}</option>
+                  <option value="Pase">{{"pr-events.prEvents_15" | translate}}</option>
+                  <option value="Cruzar">{{"pr-events.prEvents_16" | translate}}</option>
+                  <!-- <option value="Entrada">{{"pr-events.prEvents_17" | translate}}</option> -->
+                  <option value="Falta">{{"pr-events.prEvents_18" | translate}}</option>
+                  <option value="Fuera de juego">{{"pr-events.prEvents_19" | translate}}</option>
+                  <option value="Driblar">{{"pr-events.prEvents_20" | translate}}</option>
+                  <option value="Rotación">{{"pr-events.prEvents_21" | translate}}</option>
+                  <option value="Lanzamiento">{{"pr-events.prEvents_22" | translate}}</option>
+                  <option value="Saque de esquina">{{"pr-events.prEvents_23" | translate}}</option>
+                  <option value="Tiro libre directo">{{"pr-events.prEvents_24" | translate}}</option>
+                  <option value="Tiro libre indirecto">{{"pr-events.prEvents_25" | translate}}</option>
+                  <option value="Tiro penal">{{"pr-events.prEvents_26" | translate}}</option>
+                  <option value="Auto Gol">{{"pr-events.prEvents_27" | translate}}</option>
+                  <option value="Tarjeta amarilla">{{"pr-events.prEvents_28" | translate}}</option>
+                  <option value="Tarjeta roja">{{"pr-events.prEvents_29" | translate}}</option>
+                  <option value="Sustitución">{{"pr-events.prEvents_30" | translate}}</option>
                 </select>
             </ion-col>
 
             <ion-col size="3">
 
               <label class="modal-label">
-                Periodo
+                {{"pr-events.prEvents_31" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="period">
@@ -152,7 +152,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Minuto
+                {{"pr-events.prEvents_32" | translate}}
               </label>
 
               <input type="number" style="height: 39px;" class="modal-input" [max]="proyect.minutes" [(ngModel)]="minute">
@@ -161,7 +161,7 @@
             <ion-col size="3">
 
               <label class="modal-label">
-                Segundo
+                {{"pr-events.prEvents_33" | translate}}
               </label>
 
               <input type="number" style="height: 39px;" class="modal-input" max="59" [(ngModel)]="second">
@@ -169,7 +169,7 @@
 
             <ion-col size="4">
               <label class="modal-label">
-                Equipo
+                {{"pr-events.prEvents_34" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="team_id" (change)="getPlayers()">
@@ -180,7 +180,7 @@
 
             <ion-col size="4">
               <label class="modal-label">
-                Jugador
+                {{"pr-events.prEvents_35" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="player_id">
@@ -191,7 +191,7 @@
 
             <ion-col size="4" *ngIf="event == 'Tiro'">
               <label class="modal-label">
-                Asistencia
+                {{"pr-events.prEvents_36" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="assistant_id">
@@ -202,7 +202,7 @@
 
             <ion-col size="4" *ngIf="event == 'Falta'">
               <label class="modal-label">
-                Cometido a
+                {{"pr-events.prEvents_37" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="commited_id">
@@ -213,7 +213,7 @@
 
             <ion-col size="4" *ngIf="event == 'Sustitución'">
               <label class="modal-label">
-                Sustituido por
+                {{"pr-events.prEvents_38" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="substitution_id">
@@ -224,13 +224,13 @@
 
             <ion-col size="4" *ngIf="event == 'Tiro'">
               <label class="modal-label">
-                Pie
+                {{"pr-events.prEvents_39" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="foot">
                   <option selected></option>
-                  <option>Derecho</option>
-                  <option>Izquierdo</option>
+                  <option value="Derecho">{{"pr-events.prEvents_40" | translate}}</option>
+                  <option value="Izquierdo">{{"pr-events.prEvents_41" | translate}}</option>
                 </select>
             </ion-col>
 
@@ -240,25 +240,25 @@
 
             <ion-col size="4" *ngIf="event == 'Tiro'">
               <label class="modal-label">
-                Tipo de evento
+                {{"pr-events.prEvents_42" | translate}}
               </label> <br>
 
               <select class="form-control" [(ngModel)]="event_type">
-                  <option>Gol</option>
-                  <option>Tiro lateral izquierdo</option>
-                  <option>Tiro lateral derecho</option>
-                  <option>Cabezazo</option>
-                  <option>Lanzamiento</option>
-                  <option>Tiro de penalti</option>
-                  <option>Tiro libre directo</option>
-                  <option>Desviado</option>
-                  <option>Salvado por el portero</option>
+                  <option value="Gol">{{"pr-events.prEvents_43" | translate}}</option>
+                  <option value="Tiro lateral izquierdo">{{"pr-events.prEvents_44" | translate}}</option>
+                  <option value="Tiro lateral derecho">{{"pr-events.prEvents_45" | translate}}</option>
+                  <option value="Cabezazo">{{"pr-events.prEvents_46" | translate}}</option>
+                  <option value="Lanzamiento">{{"pr-events.prEvents_47" | translate}}</option>
+                  <option value="Tiro de penalti">{{"pr-events.prEvents_48" | translate}}</option>
+                  <option value="Tiro libre directo">{{"pr-events.prEvents_49" | translate}}</option>
+                  <option value="Desviado">{{"pr-events.prEvents_50" | translate}}</option>
+                  <option value="Salvado por el portero">{{"pr-events.prEvents_51" | translate}}</option>
                 </select>
             </ion-col> <br>
 
             <ion-col size="12">
               <label class="modal-label">
-                Notas
+                {{"pr-events.prEvents_52" | translate}}
               </label>
 
               <textarea [(ngModel)]="notes" style="width: 100%; resize: none; border-radius: 4px; padding: 8px;" rows="3"></textarea>
@@ -279,13 +279,13 @@
               <ion-row>
                 <ion-col size="6">
                   <button class="modal-button" [disabled]="event && !player_id" (click)="upEvent()">
-                    Agregar
+                    {{"pr-events.prEvents_53" | translate}}
                   </button>
                 </ion-col>
 
                 <ion-col size="6">
                   <button class="modal-button danger" (click)="step = 1">
-                    Cancelar
+                    {{"pr-events.prEvents_54" | translate}}
                   </button>
                 </ion-col>
               </ion-row>

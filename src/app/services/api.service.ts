@@ -16,8 +16,8 @@ export class ApiService {
 
   /*url = 'http://127.0.0.1:8000/api';
   baseUrl = 'http://127.0.0.1:8000';*/
-  url = 'https://es-basic.com/api/public/api';
-  baseUrl = 'https://es-basic.com/api/public';
+  url = 'https://api.esbasic.es/api';
+  baseUrl = 'https://api.esbasic.es';
   basePath = '/home/esbasicc/public_html/api/public';
   vPro = false;
   isIOS;
@@ -32,7 +32,7 @@ export class ApiService {
 
     let user = JSON.parse(localStorage.getItem('AFECuser') || "{}");
 
-    if (this.plt.is('desktop')) {
+    // if (this.plt.is('desktop')) {
       if (user) {
         this.checkVPro(user.email).subscribe((data:any)=>{
           if (data) {
@@ -43,9 +43,9 @@ export class ApiService {
           }
         })
       }
-    }else{
-      this.vPro = false;
-    }
+    // }else{
+    //   this.vPro = false;
+    // }
   }
 
   calculateSubscription()
@@ -148,6 +148,50 @@ export class ApiService {
   {
     return this.http.post(this.url+'/upProject',data);
   }
+  loadScoutings(id:any)
+  {
+    return this.http.get(this.url+'/loadScoutings/'+id);
+  }
+  upScouting(data:any)
+  {
+    return this.http.post(this.url+'/upScouting',data);
+  }
+  updateScouting(data:any,id:any)
+  {
+    return this.http.post(this.url+'/updateScouting/'+id,data);
+  }
+  downloadScouting(id:any)
+  {
+    return this.http.get(this.url+'/downloadScouting/'+id);
+  }
+  deleteScouting(id:any)
+  {
+    return this.http.get(this.url+'/deleteScouting/'+id);
+  }
+
+
+  loadGames(id:any)
+  {
+    return this.http.get(this.url+'/loadGames/'+id);
+  }
+  upGame(data:any)
+  {
+    return this.http.post(this.url+'/upGame',data);
+  }
+  updateGame(data:any,id:any)
+  {
+    return this.http.post(this.url+'/updateGame/'+id,data);
+  }
+  downloadGame(id:any)
+  {
+    return this.http.get(this.url+'/downloadGame/'+id);
+  }
+  deleteGame(id:any)
+  {
+    return this.http.get(this.url+'/deleteGame/'+id);
+  }
+
+
   upProject1(data:any)
   {
     return this.http.post(this.url+'/upProject1',data);
@@ -384,7 +428,7 @@ export class ApiService {
   {
     this.buyModal = await this.modal.create({
       component: BuyPage,
-      cssClass: 'modalAF'
+      cssClass: 'modalAF modalPRO'
     })
 
     this.buyModal.present();

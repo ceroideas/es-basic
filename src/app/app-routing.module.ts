@@ -87,6 +87,14 @@ const routes: Routes = [
     path: 'terrain',
     loadChildren: () => import('./pages/terrain/terrain.module').then( m => m.TerrainPageModule)
   },
+  {
+    path: 'scouting',
+    loadChildren: () => import('./pages/scouting/scouting.module').then( m => m.ScoutingPageModule)
+  },
+  {
+    path: 'game-sheet',
+    loadChildren: () => import('./pages/game-sheet/game-sheet.module').then( m => m.GameSheetPageModule)
+  },
 ];
 
 @NgModule({

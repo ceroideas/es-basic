@@ -10,12 +10,15 @@ import { PrEventsPage } from './pr-events.page';
 
 import { PipesModule } from '../../pipes/pipes.module';
 
+import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     PipesModule,
+    TranslateModule.forChild(),
     PrEventsPageRoutingModule
   ],
   declarations: [PrEventsPage]

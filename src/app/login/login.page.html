@@ -16,7 +16,7 @@
       </div>
 
       <div class="input">
-        <input type="email" [(ngModel)]="email" placeholder="E-mail">
+        <input type="email" [(ngModel)]="email" [placeholder]="'login.email' | translate">
       </div>
       <div style="clear: both;"></div>
     </div>
@@ -27,21 +27,21 @@
       </div>
 
       <div class="input">
-        <input type="password" [(ngModel)]="password" placeholder="Password">
+        <input type="password" [(ngModel)]="password" [placeholder]="'login.password' | translate">
       </div>
       <div style="clear: both;"></div>
     </div>
 
     <label>
-      <input type="checkbox"> <span class="other-text dil">Mantener la sesión iniciada</span>
+      <input type="checkbox"> <span class="other-text dil">{{'login.remember' | translate}}</span>
     </label>
 
     <button class="button-login" (click)="login()">
       LOGIN
     </button>
 
-    <span class="other-text">¿No recuerdas la contraseña? <span [routerLink]="['/recovery']" routerDirection="root">Recuperala Aquí</span></span>
-    <span class="other-text">¿No tienes cuenta? <span  [routerLink]="['/register']" routerDirection="root">Regístrate</span></span>
+    <span class="other-text">{{'login.not_remember' | translate}} <span [routerLink]="['/recovery']" routerDirection="root">{{'login.recover' | translate}}</span></span>
+    <span class="other-text">{{'login.not_account' | translate}} <span  [routerLink]="['/register']" routerDirection="root">{{'login.register' | translate}}</span></span>
 
   </div>
 

@@ -3,6 +3,8 @@ import { ModalController, AlertController, LoadingController } from '@ionic/angu
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.page.html',
@@ -52,7 +54,7 @@ export class ReportsPage implements OnInit {
 
   report:any;
 
-  constructor(public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public api: ApiService, public alertCtrl: AlertController, public loadingCtrl: LoadingController, public modal: ModalController, public events: EventsService) { }
 
   ngOnInit() {
 
@@ -167,7 +169,7 @@ export class ReportsPage implements OnInit {
         }).subscribe((data:any)=>{
         a.dismiss();
 
-        this.alertCtrl.create({message:"Informe guardado!"}).then(a=>a.present());
+        this.alertCtrl.create({message:this.translate.instant("reports.saved")}).then(a=>a.present());
 
         this.modal.dismiss();
         //**//

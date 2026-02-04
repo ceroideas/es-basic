@@ -3,6 +3,8 @@ import { ModalController,LoadingController, AlertController } from '@ionic/angul
 import { ApiService } from '../../services/api.service';
 import { EventsService } from '../../services/events.service';
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-open-project',
   templateUrl: './open-project.page.html',
@@ -19,7 +21,7 @@ export class OpenProjectPage implements OnInit {
 
   user = JSON.parse(localStorage.getItem('AFECuser'));
 
-  constructor(public modal: ModalController, public api: ApiService, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public events: EventsService) { }
+  constructor(public translate: TranslateService, public modal: ModalController, public api: ApiService, public loadingCtrl: LoadingController, public alertCtrl: AlertController, public events: EventsService) { }
 
   ngOnInit() {
     this.api.getProjects(this.user.id).subscribe(data=>{
@@ -69,7 +71,7 @@ export class OpenProjectPage implements OnInit {
 
   delete(id:any)
   {
-    this.alertCtrl.create({message:"¿Desea borrar el elemento seleccionado?", buttons: [
+    this.alertCtrl.create({message:this.translate.instant("open-project.delete"), buttons: [
     {
       text:"Si",
       handler:()=>{
